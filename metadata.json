@@ -1,0 +1,6 @@
+{
+  "name": "AmbientalMente LV",
+  "description": "Sitio web corporativo de AmbientalMente LV E.I.R.L., empresa peruana especializada en gestión de residuos sólidos, monitoreo ambiental, consultoría y soluciones sostenibles.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
