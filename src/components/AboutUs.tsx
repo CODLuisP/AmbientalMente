@@ -48,27 +48,43 @@ export default function AboutUs() {
   return (
     <section id="nosotros" className="py-24 bg-white relative overflow-hidden">
       {/* Decorative BG Grid */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-slate-200 to-transparent" />
 
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading */}
-        <div className="flex items-start gap-4 mb-16">
-          {/* Barra vertical */}
-          <div className="w-1 self-stretch bg-brand-hoja rounded-full shrink-0" />
-          <div>
-            <span className="text-xs font-semibold text-brand-hoja uppercase tracking-widest">
-              Sobre AmbientalMente LV
-            </span>
-            <h2 className="font-display font-bold text-3xl sm:text-4xl text-brand-bosque mt-2 tracking-tight">
-              Socios Estratégicos en Sostenibilidad e Ingeniería Ambiental
-            </h2>
-            <p className="font-sans text-sm sm:text-base text-slate-500 mt-3 leading-relaxed max-w-2xl">
-              Somos una empresa peruana especializada y registrada para brindar soluciones integrales de consultoría, monitoreo ambiental y gestión de residuos sólidos para el sector privado y público.
-            </p>
-          </div>
-        </div>
+    <div className="flex flex-row mb-16  h-47.5 items-center">
+
+
+  {/* Imagen */}
+  <div className="h-full shrink-0 mr-2">
+    <img
+            src="/src/public/sobre.png"
+      alt="Sobre AmbientalMente LV"
+  className="h-full w-auto object-cover rounded-2xl"
+    />
+  </div>
+
+  {/* Barra vertical */}
+
+  {/* Texto */}
+  <div className="px-4">
+    <span className="text-xs font-semibold text-brand-hoja uppercase tracking-widest">
+      Sobre AmbientalMente LV
+    </span>
+
+    <h2 className="font-display font-bold text-3xl sm:text-4xl text-brand-bosque mt-2 tracking-tight">
+      Socios Estratégicos en Sostenibilidad e Ingeniería Ambiental
+    </h2>
+
+    <p className="font-sans text-sm sm:text-base text-slate-500 mt-3 leading-relaxed max-w-2xl">
+      Somos una empresa peruana especializada y registrada para brindar soluciones
+      integrales de consultoría, monitoreo ambiental y gestión de residuos sólidos
+      para el sector privado y público.
+    </p>
+  </div>
+</div>
 
         {/* Dynamic Interactive Tabs Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
@@ -110,9 +126,9 @@ export default function AboutUs() {
           {/* Right Column: Tab Content Panel */}
           <div className="lg:col-span-8 min-h-[340px] bg-slate-50/50 rounded-3xl p-8 sm:p-10 border border-slate-100/60 shadow-inner relative overflow-hidden flex flex-col justify-between">
             <img
-              src="/src/public/hexagono.png"
+              src="/src/public/forma01.png"
               alt=""
-              className="absolute inset-0 w-full h-full object-cover opacity-25 pointer-events-none select-none"
+              className="absolute inset-0 w-full h-full object-cover opacity-5 pointer-events-none select-none"
             />
             
             <AnimatePresence mode="wait">

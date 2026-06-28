@@ -1,51 +1,94 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import { servicesData } from '../data';
-import { Service } from '../types';
-import { Truck, Gauge, FileText, Leaf, ShieldAlert, BadgeCheck, ChevronDown, CheckCircle2, ArrowRight } from 'lucide-react';
+import {
+  ArrowUpRight, ArrowRight,
+  Truck, Gauge, FileText, Droplets, GraduationCap,
+  Recycle, Route, ClipboardCheck, ShieldCheck, Wind,
+  TestTube, FlaskConical, FileCheck2, ScrollText, BookOpen,
+  Wrench, SprayCan, PackageCheck, HardHat, AlertTriangle
+} from 'lucide-react';
+
+// Esquema de color por servicio
+const cardThemes: Record<string, {
+  base: string;          // capa de fondo clara (siempre visible)
+  hover: string;         // capa de fondo fuerte (aparece en hover, arriba->abajo)
+  iconColor: string;     // color de iconos de features en reposo
+  arrowColor: string;    // color de flecha en reposo
+}> = {
+  residuos: {
+    base: 'from-green-50 to-brand-hoja/20',
+    hover: 'from-brand-hoja to-brand-bosque',
+    iconColor: 'text-brand-hoja',
+    arrowColor: 'text-brand-hoja'
+  },
+  monitoreo: {
+    base: 'from-sky-50 to-brand-agua/20',
+    hover: 'from-brand-agua to-cyan-900',
+    iconColor: 'text-brand-agua',
+    arrowColor: 'text-brand-agua'
+  },
+  consultoria: {
+    base: 'from-emerald-50 to-brand-bosque/15',
+    hover: 'from-emerald-600 to-emerald-950',
+    iconColor: 'text-brand-bosque',
+    arrowColor: 'text-brand-bosque'
+  },
+  banos: {
+    base: 'from-amber-50 to-brand-tierra/20',
+    hover: 'from-brand-tierra to-amber-950',
+    iconColor: 'text-brand-tierra',
+    arrowColor: 'text-brand-tierra'
+  },
+  capacitacion: {
+    base: 'from-lime-50 to-brand-claro/40',
+    hover: 'from-brand-hoja to-brand-bosque',
+    iconColor: 'text-brand-hoja',
+    arrowColor: 'text-brand-hoja'
+  }
+};
+
+// Iconos para las 3 features destacadas de cada servicio
+const featureIcons: Record<string, React.ReactNode[]> = {
+  residuos: [<Route />, <Recycle />, <ClipboardCheck />],
+  monitoreo: [<Droplets />, <Wind />, <FlaskConical />],
+  consultoria: [<FileCheck2 />, <ScrollText />, <BookOpen />],
+  banos: [<Wrench />, <SprayCan />, <PackageCheck />],
+  capacitacion: [<HardHat />, <ShieldCheck />, <AlertTriangle />]
+};
+
+// Las 3 etiquetas cortas mostradas como "features destacadas"
+const highlightFeatures: Record<string, string[]> = {
+  residuos: ['Recolección y transporte', 'Segregación y manejo', 'Trazabilidad del servicio'],
+  monitoreo: ['Calidad de agua y aire', 'Calidad de suelo y ruido', 'Informes técnicos'],
+  consultoria: ['Instrumentos de Gestión (IGA)', 'Declaraciones de Impacto (DIA)', 'Planes de Manejo Ambiental'],
+  banos: ['Instalación y limpieza', 'Mantenimiento preventivo', 'Reposición y retiro'],
+  capacitacion: ['Seguridad y salud (SST)', 'Prevención de riesgos', 'Normativa ambiental']
+};
+
+const topIcon = (name: string, cls: string) => {
+  switch (name) {
+    case 'Truck': return <Truck className={cls} />;
+    case 'Gauge': return <Gauge className={cls} />;
+    case 'FileText': return <FileText className={cls} />;
+    case 'GraduationCap': return <GraduationCap className={cls} />;
+    default: return <Droplets className={cls} />;
+  }
+};
 
 export default function Services() {
-  const [selectedCategory, setSelectedCategory] = useState<string>('todos');
-  const [expandedService, setExpandedService] = useState<string | null>(null);
-
-  const filterOptions = [
-    { value: 'todos', label: 'Todos los servicios' },
-    { value: 'residuos', label: 'Gestión de Residuos' },
-    { value: 'monitoreo', label: 'Monitoreo Técnico' },
-    { value: 'consultoria', label: 'Consultoría y Permisos' },
-    { value: 'sostenibilidad', label: 'Ecoeficiencia y Sostenibilidad' }
-  ];
-
-  const getServiceIcon = (name: string, sizeClass: string = "w-6 h-6") => {
-    switch (name) {
-      case 'Truck': return <Truck className={sizeClass} />;
-      case 'Gauge': return <Gauge className={sizeClass} />;
-      case 'FileText': return <FileText className={sizeClass} />;
-      case 'Leaf': return <Leaf className={sizeClass} />;
-      default: return <CheckCircle2 className={sizeClass} />;
-    }
-  };
-
-  const filteredServices = selectedCategory === 'todos'
-    ? servicesData
-    : servicesData.filter(s => s.id === selectedCategory);
-
-  const toggleExpand = (id: string) => {
-    if (expandedService === id) {
-      setExpandedService(null);
-    } else {
-      setExpandedService(id);
-    }
+  const scrollToContact = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const el = document.querySelector('#contacto');
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
   };
 
   return (
     <section id="servicios" className="py-24 bg-slate-50 relative overflow-hidden">
-      {/* Decorative Blur BG */}
       <div className="absolute top-1/3 left-10 w-96 h-96 rounded-full bg-brand-claro/10 blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 right-10 w-96 h-96 rounded-full bg-brand-agua/10 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Section Header */}
         <div className="flex items-start gap-4 mb-16">
           <div className="w-1 self-stretch bg-brand-hoja rounded-full shrink-0" />
@@ -57,174 +100,92 @@ export default function Services() {
               Soluciones Ambientales de Alto Estándar
             </h2>
             <p className="font-sans text-sm sm:text-base text-slate-500 mt-3 leading-relaxed max-w-2xl">
-              Abordamos de forma integral las necesidades ambientales de su empresa, asegurando el estricto cumplimiento normativo y promoviendo la ecoeficiencia.
+              Abordamos de forma integral las necesidades ambientales de su empresa, asegurando el estricto cumplimiento normativo y promoviendo la sostenibilidad.
             </p>
           </div>
         </div>
 
-        {/* Category Filters (Pills) */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {filterOptions.map((opt) => (
-            <button
-              key={opt.value}
-              id={`filter-btn-${opt.value}`}
-              onClick={() => {
-                setSelectedCategory(opt.value);
-                setExpandedService(null);
-              }}
-              className={`px-4.5 py-2.5 rounded-full font-sans text-xs sm:text-sm font-semibold tracking-wide transition-all duration-200 cursor-pointer border ${
-                selectedCategory === opt.value
-                  ? 'bg-brand-bosque border-brand-bosque text-white shadow-md shadow-brand-bosque/10'
-                  : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50 hover:text-brand-bosque'
-              }`}
-            >
-              {opt.label}
-            </button>
-          ))}
-        </div>
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {servicesData.map((service, idx) => {
+            const theme = cardThemes[service.id] ?? cardThemes.residuos;
+            const icons = featureIcons[service.id] ?? [];
+            const feats = highlightFeatures[service.id] ?? [];
+            return (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                className="group relative rounded-[28px] overflow-hidden cursor-pointer min-h-[520px] flex flex-col transition-all duration-500 shadow-sm hover:shadow-2xl border border-white/70 hover:border-transparent"
+              >
+                {/* Capa de fondo clara (siempre) */}
+                <div className={`absolute inset-0 bg-linear-to-b ${theme.base}`} />
+                {/* Capa de fondo fuerte (aparece en hover) */}
+                <div className={`absolute inset-0 bg-linear-to-b ${theme.hover} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
-        {/* Services Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-          <AnimatePresence mode="popLayout">
-            {filteredServices.map((service) => {
-              const isExpanded = expandedService === service.id;
-              return (
-                <motion.div
-                  key={service.id}
-                  id={`service-card-${service.id}`}
-                  layout
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.35, type: 'spring' }}
-                  className={`bg-white rounded-3xl border transition-all duration-300 relative overflow-hidden flex flex-col justify-between ${
-                    isExpanded
-                      ? 'shadow-xl border-brand-hoja/40 ring-1 ring-brand-hoja/20'
-                      : 'shadow-sm border-slate-100 hover:border-brand-hoja/20 hover:shadow-md'
-                  }`}
-                >
-                  <div className="p-6 sm:p-8">
-                    {/* Card Header */}
-                    <div className="flex items-start justify-between gap-4 mb-6">
-                      <div className="w-12 h-12 rounded-2xl bg-brand-bosque text-white flex items-center justify-center shadow-md shadow-brand-bosque/10">
-                        {getServiceIcon(service.iconName)}
-                      </div>
-                      
-                      {/* Interactive click-to-expand trigger icon */}
-                      <button
-                        onClick={() => toggleExpand(service.id)}
-                        className={`p-2 rounded-xl border border-slate-100 hover:bg-slate-50 transition-colors cursor-pointer text-slate-400 hover:text-brand-bosque ${
-                          isExpanded ? 'rotate-180 bg-slate-50 text-brand-bosque' : ''
-                        }`}
-                        aria-label="Ver más detalles"
-                      >
-                        <ChevronDown className="w-5 h-5 transition-transform duration-300" />
-                      </button>
-                    </div>
+                <div className="p-7 flex flex-col flex-1 relative z-10">
+                  {/* Top brand mark */}
+                  <div className="flex items-center gap-2 mb-5">
+                    <span className={`${theme.iconColor} group-hover:text-white transition-colors duration-300`}>
+                      {topIcon(service.iconName, 'w-6 h-6')}
+                    </span>
+                    <span className="font-display font-bold text-sm tracking-tight text-brand-bosque group-hover:text-white transition-colors duration-300">
+                      AmbientalMente
+                    </span>
+                  </div>
 
-                    <h3 className="font-display font-bold text-xl text-brand-bosque tracking-tight mb-3">
-                      {service.title}
-                    </h3>
+                  {/* Title */}
+                  <h3 className="font-display font-bold text-2xl text-brand-bosque group-hover:text-white transition-colors duration-300 tracking-tight mb-3 leading-tight">
+                    {service.title}
+                  </h3>
 
-                    <p className="font-sans text-xs sm:text-sm text-slate-500 leading-relaxed mb-6">
-                      {service.shortDescription}
-                    </p>
+                  {/* Description */}
+                  <p className="font-sans text-sm text-slate-500 group-hover:text-white/85 transition-colors duration-300 leading-relaxed mb-7">
+                    {service.shortDescription}
+                  </p>
 
-                    {/* Subcategories preview tags */}
-                    <div className="flex flex-wrap gap-1.5 mb-2">
-                      {service.categories.map((cat, i) => (
-                        <span
-                          key={i}
-                          className="px-2.5 py-1 bg-slate-100 rounded-lg text-[10px] font-semibold text-slate-600 tracking-wide"
-                        >
-                          {cat}
+                  {/* Features */}
+                  <p className="font-display font-bold text-sm text-brand-bosque group-hover:text-white transition-colors duration-300 mb-4">
+                    Incluye
+                  </p>
+                  <ul className="space-y-3.5">
+                    {feats.map((feat, i) => (
+                      <li key={i} className="flex items-center gap-3">
+                        <span className={`${theme.iconColor} group-hover:text-white transition-colors duration-300 [&>svg]:w-[18px] [&>svg]:h-[18px] shrink-0`}>
+                          {icons[i]}
                         </span>
-                      ))}
-                    </div>
+                        <span className="font-sans text-sm text-slate-700 group-hover:text-white/90 transition-colors duration-300">
+                          {feat}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-                    {/* Expanded Detail View */}
-                    <AnimatePresence>
-                      {isExpanded && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: 'auto' }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="overflow-hidden mt-6 pt-6 border-t border-slate-100"
-                        >
-                          <div className="space-y-5">
-                            {/* Detailed Description */}
-                            <div>
-                              <h4 className="font-display font-bold text-xs text-brand-bosque uppercase tracking-widest mb-1.5">
-                                Descripción Detallada
-                              </h4>
-                              <p className="font-sans text-xs sm:text-sm text-slate-600 leading-relaxed">
-                                {service.fullDescription}
-                              </p>
-                            </div>
+                {/* Image bottom-right + glow */}
+                <div className="absolute bottom-0 right-0 w-52 h-44 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-white/25 translate-x-1/4 translate-y-1/4 pointer-events-none z-[1]" />
+                <img
+                  src="/src/public/furgoneta.png"
+                  alt=""
+                  className="absolute bottom-4 right-3 h-24 w-auto object-contain drop-shadow-xl group-hover:scale-105 transition-transform duration-500 pointer-events-none z-10"
+                />
 
-                            {/* Regulation/Standards */}
-                            <div className="p-3 bg-brand-bosque/5 border-l-2 border-brand-hoja rounded-r-xl">
-                              <div className="flex items-center gap-1.5 mb-1 text-brand-bosque">
-                                <BadgeCheck className="w-4 h-4 text-brand-hoja shrink-0" />
-                                <span className="font-display font-bold text-xs uppercase tracking-wide">Marco Regulatorio</span>
-                              </div>
-                              <p className="font-sans text-[11px] sm:text-xs text-brand-bosque/90 leading-tight">
-                                {service.regulation}
-                              </p>
-                            </div>
-
-                            {/* Features list */}
-                            <div>
-                              <h4 className="font-display font-bold text-xs text-brand-bosque uppercase tracking-widest mb-2.5">
-                                Beneficios y Características
-                              </h4>
-                              <ul className="space-y-2">
-                                {service.features.map((feat, i) => (
-                                  <li key={i} className="flex items-start gap-2">
-                                    <CheckCircle2 className="w-4 h-4 text-brand-hoja mt-0.5 shrink-0" />
-                                    <span className="font-sans text-xs sm:text-sm text-slate-600 leading-tight">
-                                      {feat}
-                                    </span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-
-                  {/* Card Bottom Panel / Action Trigger */}
-                  <div className="px-6 py-4 bg-slate-50 border-t border-slate-100 flex justify-between items-center">
-                    <button
-                      onClick={() => toggleExpand(service.id)}
-                      className="font-sans text-xs font-semibold text-brand-bosque hover:text-brand-hoja transition-colors cursor-pointer"
-                    >
-                      {isExpanded ? 'Ocultar especificaciones' : 'Ver especificaciones'}
-                    </button>
-                    <a
-                      href="#contacto"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        const element = document.querySelector('#contacto');
-                        if (element) {
-                          const offsetTop = element.getBoundingClientRect().top + window.scrollY - 80;
-                          window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-                        }
-                      }}
-                      className="inline-flex items-center gap-1.5 font-sans text-xs font-bold text-brand-hoja hover:text-brand-bosque transition-colors group"
-                    >
-                      Cotizar
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                    </a>
-                  </div>
-
-                </motion.div>
-              );
-            })}
-          </AnimatePresence>
+                {/* Arrow button bottom-left */}
+                <button
+                  onClick={scrollToContact}
+                  className="absolute bottom-6 left-7 w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300 z-20 bg-white shadow-md group-hover:bg-transparent group-hover:border group-hover:border-white/70 group-hover:shadow-none"
+                  aria-label="Ver más"
+                >
+                  {/* Reposo: flecha diagonal de color */}
+                  <ArrowUpRight className={`w-5 h-5 ${theme.arrowColor} group-hover:hidden`} />
+                  {/* Hover: flecha derecha blanca */}
+                  <ArrowRight className="w-5 h-5 text-white hidden group-hover:block" />
+                </button>
+              </motion.div>
+            );
+          })}
         </div>
 
       </div>

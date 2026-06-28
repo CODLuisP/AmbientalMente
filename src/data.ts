@@ -31,61 +31,82 @@ export const servicesData: Service[] = [
   {
     id: 'residuos',
     title: 'Gestión Integral de Residuos Sólidos',
-    shortDescription: 'Recolección, transporte, valorización y disposición final de residuos peligrosos y no peligrosos con estricto cumplimiento legal.',
-    fullDescription: 'Ofrecemos soluciones integrales para la correcta segregación, recolección autorizada, transporte seguro y disposición final de residuos industriales, comerciales, de construcción y hospitalarios. Priorizamos la economía circular mediante la segregación y valorización de materiales reciclables y orgánicos.',
+    shortDescription: 'Soluciones integrales para la recolección, transporte y manejo responsable de residuos sólidos, garantizando el cumplimiento de la normativa ambiental vigente.',
+    fullDescription: 'Brindamos soluciones integrales para la recolección, transporte y manejo responsable de residuos sólidos, garantizando el cumplimiento de la normativa ambiental vigente y promoviendo prácticas sostenibles que contribuyen a la protección del medio ambiente.',
     iconName: 'Truck',
-    categories: ['Residuos Peligrosos', 'Residuos No Peligrosos', 'Valorización (Reciclaje)', 'Destrucción de Mercaderías'],
-    regulation: 'Conforme a la Ley de Gestión Integral de Residuos Sólidos (D.L. 1278) y su Reglamento (D.S. N° 014-2017-MINAM).',
+    categories: ['Recolección y transporte', 'Segregación y manejo', 'Asesoría en gestión', 'Trazabilidad del servicio'],
+    regulation: 'Cumplimiento de la normativa ambiental peruana vigente.',
     features: [
-      'Transporte en unidades autorizadas por el MINAM.',
-      'Emisión de Manifiestos de Residuos Sólidos Peligrosos.',
-      'Certificados de Disposición Final válidos para fiscalizaciones.',
-      'Programas de segregación en la fuente para empresas.'
+      'Recolección y transporte de residuos sólidos.',
+      'Segregación y manejo adecuado de residuos.',
+      'Asesoría en gestión integral de residuos.',
+      'Trazabilidad del servicio.',
+      'Cumplimiento de la normativa ambiental.'
     ]
   },
   {
     id: 'monitoreo',
-    title: 'Monitoreo Ambiental Ocupacional',
-    shortDescription: 'Evaluación técnica de agentes de calidad de aire, agua, suelos, emisiones y ruido con equipos calibrados.',
-    fullDescription: 'Realizamos mediciones en campo para determinar la concentración de contaminantes o niveles de exposición en su entorno de trabajo y operaciones. Aseguramos que sus actividades cumplan con los Estándares de Calidad Ambiental (ECA) y Límites Máximos Permisibles (LMP) exigidos por las autoridades correspondientes.',
+    title: 'Monitoreos Ambientales',
+    shortDescription: 'Evaluamos la calidad de los componentes ambientales con equipos y metodologías confiables para la toma de decisiones y el cumplimiento legal.',
+    fullDescription: 'Realizamos monitoreos ambientales con equipos y metodologías que permiten evaluar la calidad de los diferentes componentes ambientales, proporcionando información confiable para la toma de decisiones y el cumplimiento legal.',
     iconName: 'Gauge',
-    categories: ['Monitoreo de Calidad de Aire', 'Monitoreo de Ruido Ambiental y Ocupacional', 'Monitoreo de Calidad de Agua y Efluentes', 'Monitoreo de Suelos'],
+    categories: ['Calidad de agua', 'Calidad de aire', 'Calidad de suelo', 'Ruido ambiental'],
     regulation: 'Análisis realizados con laboratorios acreditados ante el INACAL bajo métodos normalizados.',
     features: [
-      'Equipos de alta precisión calibrados (sonómetros, muestreadores de aire de alto volumen, etc.).',
-      'Elaboración de informes de ensayo visados por ingenieros colegiados.',
-      'Identificación de medidas de mitigación y control.',
-      'Soporte frente a inspecciones de la OEFA y SUNAFIL.'
+      'Monitoreo de calidad de agua.',
+      'Monitoreo de calidad de aire.',
+      'Monitoreo de calidad de suelo.',
+      'Monitoreo de ruido ambiental.',
+      'Elaboración de informes técnicos.'
     ]
   },
   {
     id: 'consultoria',
-    title: 'Consultoría e Instrumentos Ambientales',
-    shortDescription: 'Elaboración de estudios e instrumentos de gestión ambiental para licencias, permisos y auditorías.',
-    fullDescription: 'Acompañamos a su empresa en el diseño y aprobación de los instrumentos exigidos por el marco legal peruano. Nos encargamos de todo el proceso de tramitación, subsanación de observaciones e interacciones con las entidades evaluadoras (SENACE, ministerios y municipalidades).',
+    title: 'Consultoría Ambiental',
+    shortDescription: 'Asesoría especializada para empresas e instituciones que buscan desarrollar sus actividades de manera responsable y conforme a la legislación ambiental vigente.',
+    fullDescription: 'Ofrecemos asesoría especializada para empresas e instituciones que buscan desarrollar sus actividades de manera responsable y conforme a la legislación ambiental vigente.',
     iconName: 'FileText',
-    categories: ['Declaraciones de Impacto Ambiental (DIA)', 'Planes de Minimización de Residuos', 'Planes de Contingencia', 'Auditorías y Diagnósticos Ambientales'],
-    regulation: 'Desarrollado bajo el Sistema Nacional de Evaluación de Impacto Ambiental (Ley N° 27446).',
+    categories: ['Instrumentos de Gestión Ambiental', 'Declaraciones de Impacto (DIA)', 'Planes de Manejo Ambiental', 'Capacitaciones ambientales'],
+    regulation: 'Conforme al Sistema Nacional de Evaluación de Impacto Ambiental (Ley N° 27446).',
     features: [
-      'Elaboración técnica rigurosa adaptada a la realidad operativa de su negocio.',
-      'Asesoría en auditorías de cumplimiento normativo legal.',
-      'Elaboración del Reporte de Manejo de Residuos Sólidos en el SIGERSOL.',
-      'Defensa técnica en procedimientos administrativos sancionadores.'
+      'Elaboración de Instrumentos de Gestión Ambiental.',
+      'Declaraciones de Impacto Ambiental (DIA).',
+      'Planes de Manejo Ambiental.',
+      'Programas de Monitoreo Ambiental.',
+      'Capacitaciones en gestión ambiental.',
+      'Asesoría para el cumplimiento de la normativa ambiental.'
     ]
   },
   {
-    id: 'sostenibilidad',
-    title: 'Soluciones Sostenibles y Ecoeficiencia',
-    shortDescription: 'Estrategias de economía circular, huella de carbono y capacitaciones para transformar su cultura organizacional.',
-    fullDescription: 'Ayudamos a su organización a transicionar hacia un modelo sostenible y de bajo impacto ambiental. Diseñamos planes de ecoeficiencia enfocados en optimizar el uso de agua, energía y papel, y estructuramos programas educativos interactivos para concientizar a sus colaboradores.',
+    id: 'banos',
+    title: 'Alquiler de Baños Portátiles',
+    shortDescription: 'Servicio de alquiler de baños portátiles para obras, proyectos, eventos e instituciones con limpieza y mantenimiento incluidos.',
+    fullDescription: 'Brindamos el servicio de alquiler de baños portátiles para obras, proyectos, eventos e instituciones, garantizando limpieza, mantenimiento y condiciones óptimas de higiene durante todo el periodo de servicio.',
     iconName: 'Leaf',
-    categories: ['Medición de Huella de Carbono', 'Planes de Ecoeficiencia Institucional', 'Estrategias de Economía Circular', 'Capacitaciones y Talleres Ambientales'],
-    regulation: 'Lineamientos alineados al MINAM y estándares internacionales como el Green House Gas (GHG) Protocol.',
+    categories: ['Obras y construcción', 'Eventos', 'Instituciones', 'Minería e industria'],
+    regulation: 'Cumplimiento de normas de saneamiento e higiene ambiental.',
     features: [
-      'Talleres interactivos de manejo de residuos y código de colores peruano.',
-      'Asesoría para la obtención del Reconocimiento de Huella de Carbono Perú.',
-      'Valorización de residuos orgánicos (Compostaje y vermicompostaje).',
-      'Diseño de indicadores de desempeño ambiental corporativo.'
+      'Instalación.',
+      'Limpieza y desinfección.',
+      'Mantenimiento preventivo.',
+      'Reposición de insumos.',
+      'Retiro del equipo.'
+    ]
+  },
+  {
+    id: 'capacitacion',
+    title: 'Capacitación en SST y Medio Ambiente',
+    shortDescription: 'Programas de capacitación orientados a la prevención de riesgos, protección del medio ambiente y cumplimiento de normativa en seguridad y salud en el trabajo.',
+    fullDescription: 'Fortalecemos las competencias del personal mediante programas de capacitación orientados a la prevención de riesgos, la protección del medio ambiente y el cumplimiento de la normativa en seguridad y salud en el trabajo.',
+    iconName: 'Gauge',
+    categories: ['Seguridad y Salud en el Trabajo', 'Gestión ambiental', 'Manejo de residuos', 'Prevención de riesgos'],
+    regulation: 'Lineamientos conforme a la Ley N° 29783 de Seguridad y Salud en el Trabajo y normativa ambiental vigente.',
+    features: [
+      'Talleres de manejo de residuos y código de colores.',
+      'Capacitación en prevención de riesgos laborales.',
+      'Formación en normativa ambiental peruana.',
+      'Programas adaptados a cada sector productivo.',
+      'Certificación de participantes.'
     ]
   }
 ];
