@@ -177,10 +177,10 @@ export default function AboutUs() {
         <div className="border-t border-slate-100 pt-20">
           <div className="text-center max-w-xl mx-auto mb-12">
             <h3 className="font-display font-bold text-lg text-brand-bosque uppercase tracking-widest">
-              Nuestro Impacto en Cifras
+              El Planeta en Cifras
             </h3>
             <p className="font-sans text-xs text-slate-400 mt-1 uppercase tracking-wide">
-              Resultados de excelencia técnica e institucional
+              Datos reales que impulsan nuestra razón de existir
             </p>
           </div>
 
@@ -189,20 +189,36 @@ export default function AboutUs() {
               <motion.div
                 key={stat.id}
                 id={`stat-card-${stat.id}`}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="bg-slate-50 hover:bg-white rounded-2xl p-6 border border-slate-100 hover:border-brand-hoja/20 transition-all shadow-sm hover:shadow-md group text-center flex flex-col items-center justify-between min-h-[200px]"
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="group relative overflow-hidden rounded-2xl min-h-[360px] flex flex-col justify-end shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 cursor-default"
               >
-                <div className="w-12 h-12 rounded-xl bg-brand-bosque/5 text-brand-bosque group-hover:bg-brand-bosque group-hover:text-white transition-all flex items-center justify-center mb-4 shadow-sm">
+                {/* Foto del tema, siempre visible y nítida */}
+                <img
+                  src={stat.bgImage}
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-[1200ms] ease-out pointer-events-none select-none"
+                />
+                {/* Degradado oscuro de abajo hacia arriba para legibilidad */}
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-bosque via-brand-bosque/60 to-transparent" />
+                {/* Velo extra que se aclara en hover */}
+                <div className="absolute inset-0 bg-brand-bosque/20 group-hover:bg-brand-bosque/0 transition-colors duration-500" />
+
+                {/* Icono flotante arriba */}
+                <div className="absolute top-5 left-5 z-10 w-11 h-11 rounded-xl bg-white/15 text-white flex items-center justify-center backdrop-blur-md border border-white/20 group-hover:bg-white group-hover:text-brand-bosque transition-all duration-500">
                   {getStatIcon(stat.iconName)}
                 </div>
-                <div>
-                  <div className="font-display font-bold text-3xl sm:text-4xl text-brand-bosque group-hover:text-brand-hoja transition-colors leading-none tracking-tight">
+
+                {/* Contenido inferior */}
+                <div className="relative z-10 p-6">
+                  {/* Línea de acento que crece en hover */}
+                  <div className="h-1 w-10 bg-brand-claro rounded-full mb-4 group-hover:w-16 transition-all duration-500" />
+                  <div className="font-display font-bold text-5xl text-white leading-none tracking-tight">
                     {stat.value}
                   </div>
-                  <p className="font-sans text-xs sm:text-sm text-slate-500 mt-2.5 leading-relaxed font-medium px-2">
+                  <p className="font-sans text-[13px] text-white/85 mt-3 leading-relaxed font-medium">
                     {stat.label}
                   </p>
                 </div>

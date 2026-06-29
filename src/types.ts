@@ -48,4 +48,5 @@ export interface Stat {
   value: string;
   label: string;
   iconName: string;
+  bgImage: string;
 }

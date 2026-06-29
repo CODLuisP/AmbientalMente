@@ -14,37 +14,58 @@ const cardThemes: Record<string, {
   hover: string;         // capa de fondo fuerte (aparece en hover, arriba->abajo)
   iconColor: string;     // color de iconos de features en reposo
   arrowColor: string;    // color de flecha en reposo
+  rings: string;         // color de las ondas en reposo (stroke)
+  ringsHover: string;    // color claro de las ondas en hover (stroke)
 }> = {
   residuos: {
     base: 'from-green-50 to-brand-hoja/20',
     hover: 'from-brand-hoja to-brand-bosque',
     iconColor: 'text-brand-hoja',
-    arrowColor: 'text-brand-hoja'
+    arrowColor: 'text-brand-hoja',
+    rings: 'stroke-brand-hoja/40',
+    ringsHover: 'group-hover:stroke-brand-claro/60'
   },
   monitoreo: {
     base: 'from-sky-50 to-brand-agua/20',
     hover: 'from-brand-agua to-cyan-900',
     iconColor: 'text-brand-agua',
-    arrowColor: 'text-brand-agua'
+    arrowColor: 'text-brand-agua',
+    rings: 'stroke-brand-agua/40',
+    ringsHover: 'group-hover:stroke-sky-200/60'
   },
   consultoria: {
     base: 'from-emerald-50 to-brand-bosque/15',
     hover: 'from-emerald-600 to-emerald-950',
     iconColor: 'text-brand-bosque',
-    arrowColor: 'text-brand-bosque'
+    arrowColor: 'text-brand-bosque',
+    rings: 'stroke-brand-bosque/40',
+    ringsHover: 'group-hover:stroke-brand-claro/55'
   },
   banos: {
     base: 'from-amber-50 to-brand-tierra/20',
     hover: 'from-brand-tierra to-amber-950',
     iconColor: 'text-brand-tierra',
-    arrowColor: 'text-brand-tierra'
+    arrowColor: 'text-brand-tierra',
+    rings: 'stroke-brand-tierra/40',
+    ringsHover: 'group-hover:stroke-amber-200/60'
   },
   capacitacion: {
     base: 'from-lime-50 to-brand-claro/40',
     hover: 'from-brand-hoja to-brand-bosque',
     iconColor: 'text-brand-hoja',
-    arrowColor: 'text-brand-hoja'
+    arrowColor: 'text-brand-hoja',
+    rings: 'stroke-brand-hoja/40',
+    ringsHover: 'group-hover:stroke-brand-claro/60'
   }
+};
+
+// Configuración de imagen por servicio (posición y tamaño independientes)
+const cardImages: Record<string, { src: string; className: string }> = {
+  residuos:     { src: '/src/public/furgoneta.png',              className: 'absolute bottom-5 right-3 h-28 w-auto' },
+  monitoreo:    { src: '/src/public/servicios/monitore.png',     className: 'absolute bottom-2 right-0 h-35 w-auto' },
+  consultoria:  { src: '/src/public/servicios/consultoria.png',  className: 'absolute bottom-0 right-0 h-38 w-auto' },
+  banos:        { src: '/src/public/servicios/baño.png',         className: 'absolute bottom-5 right-3 h-45 w-auto' },
+  capacitacion: { src: '/src/public/servicios/capacitaciones.png', className: 'absolute bottom-0 right-0 h-58 w-auto' },
 };
 
 // Iconos para las 3 features destacadas de cada servicio
@@ -109,6 +130,7 @@ export default function Services() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {servicesData.map((service, idx) => {
             const theme = cardThemes[service.id] ?? cardThemes.residuos;
+            const img = cardImages[service.id] ?? cardImages.residuos;
             const icons = featureIcons[service.id] ?? [];
             const feats = highlightFeatures[service.id] ?? [];
             return (
@@ -118,7 +140,7 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className="group relative rounded-[28px] overflow-hidden cursor-pointer min-h-[520px] flex flex-col transition-all duration-500 shadow-sm hover:shadow-2xl border border-white/70 hover:border-transparent"
+                className={`group relative rounded-[28px] overflow-hidden cursor-pointer min-h-[535px] flex flex-col transition-all duration-500 shadow-sm hover:shadow-2xl border border-white/70 hover:border-transparent${idx === servicesData.length - 1 ? ' lg:col-span-2' : ''}`}
               >
                 {/* Capa de fondo clara (siempre) */}
                 <div className={`absolute inset-0 bg-linear-to-b ${theme.base}`} />
@@ -164,12 +186,30 @@ export default function Services() {
                   </ul>
                 </div>
 
-                {/* Image bottom-right + glow */}
+                {/* Ondas concéntricas bajo la imagen */}
+                <svg
+                  viewBox="0 0 200 120"
+                  className="absolute bottom-5 right-5 w-52 h-32 pointer-events-none z-[1] overflow-visible"
+                  fill="none"
+                >
+                  {[60, 46, 32, 18].map((ry, i) => (
+                    <ellipse
+                      key={i}
+                      cx="120"
+                      cy="95"
+                      rx={ry * 1.6}
+                      ry={ry * 0.55}
+                      className={`${theme.rings} ${theme.ringsHover} transition-colors duration-500`}
+                      strokeWidth="0.75"
+                    />
+                  ))}
+                </svg>
+                {/* Glow en hover */}
                 <div className="absolute bottom-0 right-0 w-52 h-44 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-white/25 translate-x-1/4 translate-y-1/4 pointer-events-none z-[1]" />
                 <img
-                  src="/src/public/furgoneta.png"
+                  src={img.src}
                   alt=""
-                  className="absolute bottom-4 right-3 h-24 w-auto object-contain drop-shadow-xl group-hover:scale-105 transition-transform duration-500 pointer-events-none z-10"
+                  className={`${img.className} object-contain drop-shadow-xl group-hover:scale-105 transition-transform duration-500 pointer-events-none z-10`}
                 />
 
                 {/* Arrow button bottom-left */}

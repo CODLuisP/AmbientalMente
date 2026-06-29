@@ -3,27 +3,31 @@ import { Service, Value, WhyUsPoint, BrandApp, Stat } from './types';
 export const statsData: Stat[] = [
   {
     id: 'stat1',
-    value: '12K+',
-    label: 'Toneladas de residuos gestionadas de forma segura',
-    iconName: 'Trash2'
+    value: '8M',
+    label: 'Toneladas de plástico llegan al océano cada año, equivalente a un camión por minuto',
+    iconName: 'Trash2',
+    bgImage: '/src/public/cifras/oceano.jpg'
   },
   {
     id: 'stat2',
-    value: '100%',
-    label: 'Cumplimiento normativo y fiscalización con éxito (MINAM/OEFA)',
-    iconName: 'ShieldCheck'
+    value: '1.5°C',
+    label: 'Límite crítico de calentamiento global establecido por el Acuerdo de París para evitar daños irreversibles',
+    iconName: 'Activity',
+    bgImage: '/src/public/cifras/calentamiento.jpg'
   },
   {
     id: 'stat3',
-    value: '150+',
-    label: 'Clientes corporativos en sectores industrial, comercial y salud',
-    iconName: 'Building2'
+    value: '70%',
+    label: 'Del agua dulce mundial se destina a la agricultura; su gestión eficiente es clave para la sostenibilidad',
+    iconName: 'ShieldCheck',
+    bgImage: '/src/public/cifras/agua.jpg'
   },
   {
     id: 'stat4',
-    value: '500+',
-    label: 'Monitoreos de calidad de aire, agua, suelo y ruido ejecutados',
-    iconName: 'Activity'
+    value: '13M ha',
+    label: 'De bosques se pierden anualmente en el mundo, afectando la biodiversidad y el ciclo del carbono',
+    iconName: 'Building2',
+    bgImage: '/src/public/cifras/bosque.jpg'
   }
 ];
 
