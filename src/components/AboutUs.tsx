@@ -180,9 +180,6 @@ export default function AboutUs() {
             <h3 className="font-display font-bold text-lg text-brand-bosque uppercase tracking-widest">
               El Planeta en Cifras
             </h3>
-            <p className="font-sans text-xs text-slate-400 mt-1 uppercase tracking-wide">
-              Datos reales que impulsan nuestra razón de existir
-            </p>
           </Reveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

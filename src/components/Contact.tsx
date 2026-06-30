@@ -113,7 +113,7 @@ export default function Contact() {
         {/* Section Heading */}
         <Reveal className="flex flex-row mb-16 h-47.5 items-center">
           <div className="h-full shrink-0 mr-2">
-            <img src="/src/public/sobre.png" alt="Canales de Atención" className="h-full w-auto object-cover rounded-2xl" />
+            <img src="/src/public/sobre01.png" alt="Canales de Atención" className="h-full w-auto object-cover rounded-2xl" />
           </div>
           <div className="px-4">
             <span className="text-xs font-semibold text-brand-hoja uppercase tracking-widest">
@@ -210,11 +210,11 @@ export default function Contact() {
 
           {/* Right Column: Interactive Feedback Contact Form (7 cols) */}
           <Reveal direction="left" delay={0.1} className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 border border-slate-100 shadow-sm relative overflow-hidden">
-            <img
-              src="/src/public/formulariof.jpeg"
-              alt=""
-              className="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none select-none"
-            />
+          <img
+  src="/src/public/formulariof.jpeg"
+  alt=""
+  className="absolute inset-0 w-full h-full object-cover opacity-5 pointer-events-none select-none"
+/>
             <AnimatePresence mode="wait">
               {!submitSuccess ? (
                 <motion.form

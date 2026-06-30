@@ -30,9 +30,11 @@ export default function BrandApplications() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading */}
-        <Reveal className="flex items-start gap-4 mb-16">
-          <div className="w-1 self-stretch bg-brand-hoja rounded-full shrink-0" />
-          <div>
+        <Reveal className="flex flex-row mb-16 h-47.5 items-center">
+          <div className="h-full shrink-0 mr-2">
+            <img src="/src/public/sobre.png" alt="Identidad de Marca" className="h-full w-auto object-cover rounded-2xl" />
+          </div>
+          <div className="px-4">
             <span className="text-xs font-semibold text-brand-hoja uppercase tracking-widest">
               Identidad de Marca
             </span>

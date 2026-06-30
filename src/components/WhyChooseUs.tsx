@@ -34,9 +34,11 @@ export default function WhyChooseUs() {
           
           {/* Left Column: Context, Narrative & Comparative Table */}
           <div className="lg:col-span-5 flex flex-col justify-center">
-            <div className="flex items-start gap-4 mb-8">
-              <div className="w-1 self-stretch bg-brand-hoja rounded-full shrink-0" />
-              <div>
+            <div className="flex flex-row mb-8 h-47.5 items-center">
+              <div className="h-full shrink-0 mr-2">
+                <img src="/src/public/sobre01.png" alt="Diferenciales de Valor" className="h-full w-auto object-cover rounded-2xl" />
+              </div>
+              <div className="px-4">
                 <span className="text-xs font-semibold text-brand-hoja uppercase tracking-widest">
                   Diferenciales de Valor
                 </span>
