@@ -3,33 +3,41 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import AboutUs from './components/AboutUs';
-import Services from './components/Services';
-import Values from './components/Values';
-import WhyChooseUs from './components/WhyChooseUs';
-import BrandApplications from './components/BrandApplications';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import WhatsAppFloat from './components/WhatsAppFloat';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import AboutUs from "./components/AboutUs";
+import Services from "./components/Services";
+import Values from "./components/Values";
+import WhyChooseUs from "./components/WhyChooseUs";
+import BrandApplications from "./components/BrandApplications";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import WhatsAppFloat from "./components/WhatsAppFloat";
 
 export default function App() {
-  const [activeSection, setActiveSection] = useState<string>('inicio');
+  const [activeSection, setActiveSection] = useState<string>("inicio");
   const [isPageLoaded, setIsPageLoaded] = useState<boolean>(false);
 
   useEffect(() => {
     // Set loaded state to trigger subtle page entrance transitions
     setIsPageLoaded(true);
 
-    const sections = ['inicio', 'nosotros', 'servicios', 'valores', 'por-que-elegirnos', 'marca', 'contacto'];
-    
+    const sections = [
+      "inicio",
+      "nosotros",
+      "servicios",
+      "valores",
+      "por-que-elegirnos",
+      "marca",
+      "contacto",
+    ];
+
     const observerOptions = {
       root: null,
-      rootMargin: '-30% 0px -50% 0px', // Triggers when section is roughly in center viewport
-      threshold: 0
+      rootMargin: "-30% 0px -50% 0px", // Triggers when section is roughly in center viewport
+      threshold: 0,
     };
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
@@ -40,7 +48,10 @@ export default function App() {
       });
     };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions,
+    );
 
     sections.forEach((id) => {
       const el = document.getElementById(id);
@@ -68,9 +79,9 @@ export default function App() {
           {/* Scroll progress indicator line */}
           <motion.div
             id="scroll-progress-bar"
-            className="fixed top-0 left-0 right-0 h-[3px] bg-brand-hoja z-50 origin-left"
+            className="fixed top-0 left-0 right-0 h-0.75 bg-brand-hoja z-50 origin-left"
             style={{
-              scaleX: '0', // Fallback as we are not using scroll hooks for raw performance, but can hook manually or just leave as elegant design border
+              scaleX: "0", // Fallback as we are not using scroll hooks for raw performance, but can hook manually or just leave as elegant design border
             }}
           />
 
@@ -78,7 +89,7 @@ export default function App() {
           <Navbar activeSection={activeSection} />
 
           {/* Page Sections Layout */}
-          <main className="flex-grow">
+          <main className="grow">
             {/* 1. Hero / Portada */}
             <Hero />
 
