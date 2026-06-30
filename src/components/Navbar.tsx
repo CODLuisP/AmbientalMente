@@ -44,12 +44,12 @@ export default function Navbar({ activeSection }: NavbarProps) {
     <>
       <nav
         id="navbar"
-        className="fixed top-0 left-0 w-full z-50 pt-4 px-8 sm:px-16 lg:px-32"
+        className="fixed top-0 left-0 w-full z-50"
       >
-        <div className={`rounded-2xl transition-all duration-300 ${
+        <div className={`transition-all duration-300 bg-white border-b border-slate-100 px-8 sm:px-16 lg:px-32 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-md border border-slate-100 px-6 py-3'
-            : 'bg-white/10 backdrop-blur-sm border border-white/20 px-6 py-4'
+            ? 'shadow-md py-3'
+            : 'shadow-sm py-4'
         }`}>
           <div className="flex justify-between items-center">
             {/* Logo */}

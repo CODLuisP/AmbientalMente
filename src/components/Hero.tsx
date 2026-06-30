@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { ArrowRight, ShieldCheck, Award, MapPin } from 'lucide-react';
 
 const TITLE_1 = 'Transformamos desafíos ambientales en ';
-const TITLE_2 = 'soluciones sostenibles.';
+const TITLE_2 = 'soluciones sostenibles';
 
 function useTypewriter(text: string, speed = 40, delay = 300) {
   const [displayed, setDisplayed] = useState('');
@@ -69,23 +69,13 @@ export default function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('/src/public/fondo3.jpg')",
+          backgroundImage: "url('/src/public/fondo2.jpeg')",
           backgroundPosition: 'center 40%'
         }}
       />
 
-      {/* Overlay móvil: más opaco para legibilidad en pantalla completa */}
-      <div className="absolute inset-0 block sm:hidden"
-        style={{ background: 'rgba(255,255,255,0.82)' }}
-      />
-      {/* Overlay desktop: degradado horizontal */}
-      <div
-        className="absolute inset-0 hidden sm:block"
-        style={{
-          background:
-            'linear-gradient(to right, rgba(255,255,255,0.90) 0%, rgba(255,255,255,0.65) 40%, rgba(255,255,255,0.20) 70%, rgba(255,255,255,0) 100%)',
-        }}
-      />
+      {/* Degradado verde bosque de izquierda a derecha */}
+      <div className="absolute inset-0 bg-linear-to-r from-brand-bosque from-5% via-brand-bosque/80 via-40% to-transparent to-75%" />
 
       {/* Contenido */}
       <div className="relative z-10 w-full px-5 sm:px-10 lg:px-24 xl:px-32 pt-28 pb-16 sm:pt-32 sm:pb-20">
@@ -93,24 +83,24 @@ export default function Hero() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="max-w-xs sm:max-w-lg lg:max-w-2xl"
+          className="max-w-xs sm:max-w-lg lg:max-w-2xl text-left flex flex-col items-start"
         >
           {/* Título con efecto typewriter */}
           <motion.h1
             variants={itemVariants}
-            className="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-brand-bosque leading-tight tracking-tight mb-4 sm:mb-6"
+            className="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-tight tracking-tight mb-4 sm:mb-6 drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)]"
           >
             {part1}
-            <span className="text-brand-hoja">{part2}</span>
+            <span className="text-brand-claro">{part2}</span>
             {!done2 && <span className="inline-block w-0.5 h-[0.85em] bg-brand-hoja align-middle ml-1 animate-pulse" />}
           </motion.h1>
 
           {/* Subtítulo */}
           <motion.p
             variants={itemVariants}
-            className="text-sm sm:text-base lg:text-lg text-slate-600 mb-7 sm:mb-10 leading-relaxed"
+            className="text-sm sm:text-base lg:text-lg text-white/85 mb-7 sm:mb-10 leading-relaxed drop-shadow-[0_1px_8px_rgba(0,0,0,0.3)]"
           >
-            En <strong className="text-brand-bosque">AmbientalMente LV E.I.R.L.</strong> nos especializamos
+            En <strong className="text-white font-bold">AmbientalMente LV E.I.R.L.</strong> nos especializamos
             en la gestión integral de residuos sólidos, monitoreo ocupacional y consultorías que
             transforman su cumplimiento normativo en ventajas competitivas.
           </motion.p>
@@ -118,30 +108,30 @@ export default function Hero() {
           {/* Trust badges */}
           <motion.div variants={itemVariants} className="flex flex-wrap gap-4 sm:gap-6 mb-7 sm:mb-10">
             <div className="flex items-center gap-2">
-              <div className="p-1.5 rounded-lg bg-brand-hoja/10 text-brand-hoja">
+              <div className="p-1.5 rounded-lg bg-white/15 text-brand-claro backdrop-blur-md border border-white/20">
                 <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div>
-                <p className="text-[11px] sm:text-xs font-bold text-brand-bosque">100% Legal</p>
-                <p className="text-[10px] text-slate-500">Autorización MINAM</p>
+                <p className="text-[11px] sm:text-xs font-bold text-white">100% Legal</p>
+                <p className="text-[10px] text-white/70">Autorización MINAM</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <div className="p-1.5 rounded-lg bg-brand-agua/10 text-brand-agua">
+              <div className="p-1.5 rounded-lg bg-white/15 text-brand-claro backdrop-blur-md border border-white/20">
                 <Award className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div>
-                <p className="text-[11px] sm:text-xs font-bold text-brand-bosque">Garantía INACAL</p>
-                <p className="text-[10px] text-slate-500">Laboratorios acreditados</p>
+                <p className="text-[11px] sm:text-xs font-bold text-white">Garantía INACAL</p>
+                <p className="text-[10px] text-white/70">Laboratorios acreditados</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <div className="p-1.5 rounded-lg bg-brand-tierra/10 text-brand-tierra">
+              <div className="p-1.5 rounded-lg bg-white/15 text-brand-claro backdrop-blur-md border border-white/20">
                 <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div>
-                <p className="text-[11px] sm:text-xs font-bold text-brand-bosque">Soporte Nacional</p>
-                <p className="text-[10px] text-slate-500">Cobertura en todo el Perú</p>
+                <p className="text-[11px] sm:text-xs font-bold text-white">Soporte Nacional</p>
+                <p className="text-[10px] text-white/70">Cobertura en todo el Perú</p>
               </div>
             </div>
           </motion.div>
@@ -150,14 +140,14 @@ export default function Hero() {
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <button
               onClick={(e) => handleScrollTo(e, '#servicios')}
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 bg-brand-bosque text-white text-sm sm:text-base font-semibold rounded-2xl hover:bg-brand-bosque/90 transition-all shadow-lg shadow-brand-bosque/15 group cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 bg-brand-hoja text-white text-sm sm:text-base font-semibold rounded-2xl hover:bg-brand-hoja/90 transition-all shadow-lg shadow-black/20 group cursor-pointer"
             >
               Explorar Servicios
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-brand-claro group-hover:translate-x-0.5 transition-transform" />
             </button>
             <button
               onClick={(e) => handleScrollTo(e, '#contacto')}
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 bg-white/90 border-2 border-slate-200 text-slate-700 text-sm sm:text-base font-semibold rounded-2xl hover:bg-slate-50 hover:border-slate-300 hover:text-brand-bosque transition-all cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 bg-white/10 border-2 border-white/40 text-white text-sm sm:text-base font-semibold rounded-2xl backdrop-blur-md hover:bg-white/20 hover:border-white/60 transition-all cursor-pointer"
             >
               Asesoría Gratuita
             </button>

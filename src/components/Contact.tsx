@@ -208,9 +208,9 @@ export default function Contact() {
           {/* Right Column: Interactive Feedback Contact Form (7 cols) */}
           <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 border border-slate-100 shadow-sm relative overflow-hidden">
             <img
-              src="/src/public/formulario.png"
+              src="/src/public/formulariof.jpeg"
               alt=""
-              className="absolute bottom-0 left-0 h-50 w-auto object-contain opacity-20 pointer-events-none select-none"
+              className="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none select-none"
             />
             <AnimatePresence mode="wait">
               {!submitSuccess ? (

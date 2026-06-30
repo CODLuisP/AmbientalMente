@@ -80,8 +80,14 @@ export default function Values() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.45, delay: idx * 0.12 }}
-                className={`rounded-3xl p-6 border transition-all duration-300 flex flex-col justify-between group min-h-[250px] ${styles.bg} ${styles.border}`}
+                className={`relative rounded-3xl p-6 border transition-all duration-300 flex flex-col justify-between group min-h-[250px] overflow-hidden ${styles.bg} ${styles.border}`}
               >
+                {/* Imagen decorativa alternada: formulario (izq) / carda (der) */}
+                <img
+                  src={idx % 2 === 0 ? '/src/public/formulario.png' : '/src/public/carda.png'}
+                  alt=""
+                  className={`absolute bottom-0 h-28 w-auto object-contain opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none select-none ${idx % 2 === 0 ? 'left-0' : 'right-0'}`}
+                />
                 <div>
                   {/* Styled Icon Container */}
                   <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:scale-105 transition-transform ${styles.iconBg}`}>
