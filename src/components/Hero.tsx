@@ -1,16 +1,16 @@
-import { MouseEvent, useEffect, useState } from 'react';
-import { motion } from 'motion/react';
-import { ArrowRight, ShieldCheck, Award, MapPin } from 'lucide-react';
+import { MouseEvent, useEffect, useState } from "react";
+import { motion } from "motion/react";
+import { ArrowRight, ShieldCheck, Award, MapPin } from "lucide-react";
 
-const TITLE_1 = 'Transformamos desafíos ambientales en ';
-const TITLE_2 = 'soluciones sostenibles';
+const TITLE_1 = "Transformamos desafíos ambientales en ";
+const TITLE_2 = "soluciones sostenibles";
 
 function useTypewriter(text: string, speed = 40, delay = 300) {
-  const [displayed, setDisplayed] = useState('');
+  const [displayed, setDisplayed] = useState("");
   const [done, setDone] = useState(false);
 
   useEffect(() => {
-    setDisplayed('');
+    setDisplayed("");
     setDone(false);
     const timeout = setTimeout(() => {
       let i = 0;
@@ -32,14 +32,22 @@ function useTypewriter(text: string, speed = 40, delay = 300) {
 
 export default function Hero() {
   const { displayed: part1, done: done1 } = useTypewriter(TITLE_1, 35, 400);
-  const { displayed: part2, done: done2 } = useTypewriter(done1 ? TITLE_2 : '', 45, 0);
+  const { displayed: part2, done: done2 } = useTypewriter(
+    done1 ? TITLE_2 : "",
+    45,
+    0,
+  );
 
-  const handleScrollTo = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>, href: string) => {
+  const handleScrollTo = (
+    e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
+    href: string,
+  ) => {
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {
-      const offsetTop = element.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+      const offsetTop =
+        element.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: offsetTop, behavior: "smooth" });
     }
   };
 
@@ -47,8 +55,8 @@ export default function Hero() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.15, delayChildren: 0.1 }
-    }
+      transition: { staggerChildren: 0.15, delayChildren: 0.1 },
+    },
   };
 
   const itemVariants = {
@@ -56,8 +64,8 @@ export default function Hero() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { type: 'spring' as const, stiffness: 100, damping: 15 }
-    }
+      transition: { type: "spring" as const, stiffness: 100, damping: 15 },
+    },
   };
 
   return (
@@ -69,8 +77,8 @@ export default function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('/src/public/fondo2.jpeg')",
-          backgroundPosition: 'center 40%'
+          backgroundImage: "url('/src/public/fondo2.webp')",
+          backgroundPosition: "center 40%",
         }}
       />
 
@@ -92,7 +100,9 @@ export default function Hero() {
           >
             {part1}
             <span className="text-brand-claro">{part2}</span>
-            {!done2 && <span className="inline-block w-0.5 h-[0.85em] bg-brand-hoja align-middle ml-1 animate-pulse" />}
+            {!done2 && (
+              <span className="inline-block w-0.5 h-[0.85em] bg-brand-hoja align-middle ml-1 animate-pulse" />
+            )}
           </motion.h1>
 
           {/* Subtítulo */}
@@ -100,19 +110,28 @@ export default function Hero() {
             variants={itemVariants}
             className="text-sm sm:text-base lg:text-lg text-white/85 mb-7 sm:mb-10 leading-relaxed drop-shadow-[0_1px_8px_rgba(0,0,0,0.3)]"
           >
-            En <strong className="text-white font-bold">AmbientalMente LV E.I.R.L.</strong> nos especializamos
-            en la gestión integral de residuos sólidos, monitoreo ocupacional y consultorías que
-            transforman su cumplimiento normativo en ventajas competitivas.
+            En{" "}
+            <strong className="text-white font-bold">
+              AmbientalMente LV E.I.R.L.
+            </strong>{" "}
+            nos especializamos en la gestión integral de residuos sólidos,
+            monitoreo ocupacional y consultorías que transforman su cumplimiento
+            normativo en ventajas competitivas.
           </motion.p>
 
           {/* Trust badges */}
-          <motion.div variants={itemVariants} className="flex flex-wrap gap-4 sm:gap-6 mb-7 sm:mb-10">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-wrap gap-4 sm:gap-6 mb-7 sm:mb-10"
+          >
             <div className="flex items-center gap-2">
               <div className="p-1.5 rounded-lg bg-white/15 text-brand-claro backdrop-blur-md border border-white/20">
                 <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div>
-                <p className="text-[11px] sm:text-xs font-bold text-white">100% Legal</p>
+                <p className="text-[11px] sm:text-xs font-bold text-white">
+                  100% Legal
+                </p>
                 <p className="text-[10px] text-white/70">Autorización MINAM</p>
               </div>
             </div>
@@ -121,8 +140,12 @@ export default function Hero() {
                 <Award className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div>
-                <p className="text-[11px] sm:text-xs font-bold text-white">Garantía INACAL</p>
-                <p className="text-[10px] text-white/70">Laboratorios acreditados</p>
+                <p className="text-[11px] sm:text-xs font-bold text-white">
+                  Garantía INACAL
+                </p>
+                <p className="text-[10px] text-white/70">
+                  Laboratorios acreditados
+                </p>
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -130,23 +153,30 @@ export default function Hero() {
                 <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div>
-                <p className="text-[11px] sm:text-xs font-bold text-white">Soporte Nacional</p>
-                <p className="text-[10px] text-white/70">Cobertura en todo el Perú</p>
+                <p className="text-[11px] sm:text-xs font-bold text-white">
+                  Soporte Nacional
+                </p>
+                <p className="text-[10px] text-white/70">
+                  Cobertura en todo el Perú
+                </p>
               </div>
             </div>
           </motion.div>
 
           {/* CTAs */}
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4"
+          >
             <button
-              onClick={(e) => handleScrollTo(e, '#servicios')}
+              onClick={(e) => handleScrollTo(e, "#servicios")}
               className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 bg-brand-hoja text-white text-sm sm:text-base font-semibold rounded-2xl hover:bg-brand-hoja/90 transition-all shadow-lg shadow-black/20 group cursor-pointer"
             >
               Explorar Servicios
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-brand-claro group-hover:translate-x-0.5 transition-transform" />
             </button>
             <button
-              onClick={(e) => handleScrollTo(e, '#contacto')}
+              onClick={(e) => handleScrollTo(e, "#contacto")}
               className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 bg-white/10 border-2 border-white/40 text-white text-sm sm:text-base font-semibold rounded-2xl backdrop-blur-md hover:bg-white/20 hover:border-white/60 transition-all cursor-pointer"
             >
               Asesoría Gratuita

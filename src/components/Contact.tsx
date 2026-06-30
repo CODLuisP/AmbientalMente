@@ -1,72 +1,85 @@
-import { useState, ChangeEvent, FormEvent } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle2, Building2, ShieldCheck, AlertCircle, RefreshCw } from 'lucide-react';
-import { ContactFormData } from '../types';
-import Reveal from './Reveal';
+import { useState, ChangeEvent, FormEvent } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Send,
+  CheckCircle2,
+  Building2,
+  ShieldCheck,
+  AlertCircle,
+  RefreshCw,
+} from "lucide-react";
+import { ContactFormData } from "../types";
+import Reveal from "./Reveal";
 
 export default function Contact() {
   const [formData, setFormData] = useState<ContactFormData>({
-    name: '',
-    email: '',
-    phone: '',
-    companyName: '',
-    ruc: '',
-    serviceInterest: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    companyName: "",
+    ruc: "",
+    serviceInterest: "",
+    message: "",
   });
 
   const [formErrors, setFormErrors] = useState<Partial<ContactFormData>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [ticketNumber, setTicketNumber] = useState('');
+  const [ticketNumber, setTicketNumber] = useState("");
 
   const servicesInterestOptions = [
-    { value: 'residuos', label: 'Gestión Integral de Residuos' },
-    { value: 'monitoreo', label: 'Monitoreo Ambiental Ocupacional' },
-    { value: 'consultoria', label: 'Consultoría e Instrumentos Legales' },
-    { value: 'sostenibilidad', label: 'Ecoeficiencia y Sostenibilidad' },
-    { value: 'general', label: 'Consulta General' }
+    { value: "residuos", label: "Gestión Integral de Residuos" },
+    { value: "monitoreo", label: "Monitoreo Ambiental Ocupacional" },
+    { value: "consultoria", label: "Consultoría e Instrumentos Legales" },
+    { value: "sostenibilidad", label: "Ecoeficiencia y Sostenibilidad" },
+    { value: "general", label: "Consulta General" },
   ];
 
   const validateForm = (): boolean => {
     const errors: Partial<ContactFormData> = {};
-    
-    if (!formData.name.trim()) errors.name = 'El nombre es obligatorio.';
-    
+
+    if (!formData.name.trim()) errors.name = "El nombre es obligatorio.";
+
     if (!formData.email.trim()) {
-      errors.email = 'El correo electrónico es obligatorio.';
+      errors.email = "El correo electrónico es obligatorio.";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      errors.email = 'El formato del correo electrónico no es válido.';
+      errors.email = "El formato del correo electrónico no es válido.";
     }
-    
+
     if (!formData.phone.trim()) {
-      errors.phone = 'El teléfono es obligatorio.';
+      errors.phone = "El teléfono es obligatorio.";
     } else if (!/^\+?[0-9\s-]{7,15}$/.test(formData.phone)) {
-      errors.phone = 'El número telefónico no es válido.';
+      errors.phone = "El número telefónico no es válido.";
     }
-    
+
     if (formData.ruc.trim() && !/^[0-9]{11}$/.test(formData.ruc)) {
-      errors.ruc = 'El RUC debe constar de exactamente 11 dígitos numéricos.';
+      errors.ruc = "El RUC debe constar de exactamente 11 dígitos numéricos.";
     }
-    
+
     if (!formData.serviceInterest) {
-      errors.serviceInterest = 'Por favor, seleccione un área de interés.';
+      errors.serviceInterest = "Por favor, seleccione un área de interés.";
     }
-    
+
     if (!formData.message.trim()) {
-      errors.message = 'Por favor, detalle su requerimiento o consulta.';
+      errors.message = "Por favor, detalle su requerimiento o consulta.";
     }
 
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
   };
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
     // Clear error for this field
     if (formErrors[name as keyof ContactFormData]) {
-      setFormErrors(prev => ({ ...prev, [name]: undefined }));
+      setFormErrors((prev) => ({ ...prev, [name]: undefined }));
     }
   };
 
@@ -83,37 +96,43 @@ export default function Contact() {
       // Generate a realistic ticket reference number
       const randomTicket = `AMV-${Math.floor(100000 + Math.random() * 900000)}`;
       setTicketNumber(randomTicket);
-      
+
       // Clear form except interest
       setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        companyName: '',
-        ruc: '',
-        serviceInterest: '',
-        message: ''
+        name: "",
+        email: "",
+        phone: "",
+        companyName: "",
+        ruc: "",
+        serviceInterest: "",
+        message: "",
       });
     }, 1800);
   };
 
   const handleReset = () => {
     setSubmitSuccess(false);
-    setTicketNumber('');
+    setTicketNumber("");
   };
 
   return (
-    <section id="contacto" className="py-24 bg-slate-50 relative overflow-hidden">
+    <section
+      id="contacto"
+      className="py-24 bg-slate-50 relative overflow-hidden"
+    >
       {/* Decorative accent background circles */}
-      <div className="absolute top-10 left-[-10%] w-[400px] h-[400px] rounded-full bg-brand-claro/5 blur-3xl" />
-      <div className="absolute bottom-10 right-[-10%] w-[400px] h-[400px] rounded-full bg-brand-agua/5 blur-3xl" />
+      <div className="absolute top-10 left-[-10%] w-100 h-100 rounded-full bg-brand-claro/5 blur-3xl" />
+      <div className="absolute bottom-10 right-[-10%] w-100 h-100 rounded-full bg-brand-agua/5 blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
         {/* Section Heading */}
         <Reveal className="flex flex-row mb-16 h-47.5 items-center">
           <div className="h-full shrink-0 mr-2">
-            <img src="/src/public/sobre01.png" alt="Canales de Atención" className="h-full w-auto object-cover rounded-2xl" />
+            <img
+              src="/src/public/sobre01.webp"
+              alt="Canales de Atención"
+              className="h-full w-auto object-cover rounded-2xl"
+            />
           </div>
           <div className="px-4">
             <span className="text-xs font-semibold text-brand-hoja uppercase tracking-widest">
@@ -123,13 +142,13 @@ export default function Contact() {
               ¿Listo para iniciar su proyecto sostenible?
             </h2>
             <p className="font-sans text-sm sm:text-base text-slate-500 mt-3 leading-relaxed max-w-2xl">
-              Póngase en contacto con nuestros ingenieros especialistas. Le responderemos en menos de 24 horas laborables.
+              Póngase en contacto con nuestros ingenieros especialistas. Le
+              responderemos en menos de 24 horas laborables.
             </p>
           </div>
         </Reveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
           {/* Left Column: Contact Channels & Map Mockup (5 cols) */}
           <Reveal direction="right" className="lg:col-span-5 space-y-8">
             <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm space-y-6">
@@ -137,18 +156,20 @@ export default function Contact() {
                 Información Corporativa
               </h3>
               <p className="font-sans text-xs sm:text-sm text-slate-500 leading-relaxed">
-                Empresa peruana con sede en Cajamarca, comprometida con la gestión ambiental sostenible a nivel nacional.
+                Empresa peruana con sede en Cajamarca, comprometida con la
+                gestión ambiental sostenible a nivel nacional.
               </p>
 
               {/* Channels List */}
               <div className="space-y-5 pt-4 border-t border-slate-100">
-                
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-brand-bosque/5 text-brand-bosque flex items-center justify-center shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-xs text-slate-400 uppercase tracking-wider">Dirección Central</h4>
+                    <h4 className="font-display font-bold text-xs text-slate-400 uppercase tracking-wider">
+                      Dirección Central
+                    </h4>
                     <p className="font-sans text-xs sm:text-sm text-brand-bosque font-semibold mt-0.5">
                       Jr. Villa Tres Molinos Mz. C Lote 16 E, Cajamarca – Perú
                     </p>
@@ -160,7 +181,9 @@ export default function Contact() {
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-xs text-slate-400 uppercase tracking-wider">Correo Electrónico</h4>
+                    <h4 className="font-display font-bold text-xs text-slate-400 uppercase tracking-wider">
+                      Correo Electrónico
+                    </h4>
                     <a
                       id="contact-email"
                       href="mailto:ambientalmente531@gmail.com"
@@ -176,7 +199,9 @@ export default function Contact() {
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-xs text-slate-400 uppercase tracking-wider">Teléfonos de Contacto</h4>
+                    <h4 className="font-display font-bold text-xs text-slate-400 uppercase tracking-wider">
+                      Teléfonos de Contacto
+                    </h4>
                     <a
                       id="contact-phone"
                       href="https://wa.me/51958671088"
@@ -186,7 +211,9 @@ export default function Contact() {
                     >
                       +51 958 671 088
                     </a>
-                    <span className="font-sans text-xs text-slate-500 block">WhatsApp disponible</span>
+                    <span className="font-sans text-xs text-slate-500 block">
+                      WhatsApp disponible
+                    </span>
                   </div>
                 </div>
 
@@ -195,26 +222,32 @@ export default function Contact() {
                     <Clock className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-xs text-slate-400 uppercase tracking-wider">Horario de Atención</h4>
+                    <h4 className="font-display font-bold text-xs text-slate-400 uppercase tracking-wider">
+                      Horario de Atención
+                    </h4>
                     <p className="font-sans text-xs sm:text-sm text-brand-bosque font-semibold mt-0.5">
                       Lunes a Viernes: 8:00 AM — 6:00 PM
                     </p>
-                    <p className="font-sans text-xs text-slate-500">Sábados: 9:00 AM — 1:00 PM</p>
+                    <p className="font-sans text-xs text-slate-500">
+                      Sábados: 9:00 AM — 1:00 PM
+                    </p>
                   </div>
                 </div>
-
               </div>
             </div>
-
           </Reveal>
 
           {/* Right Column: Interactive Feedback Contact Form (7 cols) */}
-          <Reveal direction="left" delay={0.1} className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 border border-slate-100 shadow-sm relative overflow-hidden">
-          <img
-  src="/src/public/formulariof.jpeg"
-  alt=""
-  className="absolute inset-0 w-full h-full object-cover opacity-5 pointer-events-none select-none"
-/>
+          <Reveal
+            direction="left"
+            delay={0.1}
+            className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 border border-slate-100 shadow-sm relative overflow-hidden"
+          >
+            <img
+              src="/src/public/formulariof.webp"
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover opacity-5 pointer-events-none select-none"
+            />
             <AnimatePresence mode="wait">
               {!submitSuccess ? (
                 <motion.form
@@ -229,7 +262,10 @@ export default function Contact() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     {/* Name */}
                     <div>
-                      <label htmlFor="name" className="block text-xs font-semibold text-brand-bosque uppercase tracking-wider mb-1.5">
+                      <label
+                        htmlFor="name"
+                        className="block text-xs font-semibold text-brand-bosque uppercase tracking-wider mb-1.5"
+                      >
                         Nombre Completo *
                       </label>
                       <input
@@ -241,8 +277,8 @@ export default function Contact() {
                         placeholder="Ej. Luis Cabrera"
                         className={`w-full px-4 py-3 rounded-xl border font-sans text-sm transition-all focus:outline-none focus:ring-1 ${
                           formErrors.name
-                            ? 'border-red-400 focus:border-red-500 focus:ring-red-100 bg-red-50/10'
-                            : 'border-slate-200 focus:border-brand-hoja focus:ring-brand-hoja/10 bg-slate-50/50 focus:bg-white'
+                            ? "border-red-400 focus:border-red-500 focus:ring-red-100 bg-red-50/10"
+                            : "border-slate-200 focus:border-brand-hoja focus:ring-brand-hoja/10 bg-slate-50/50 focus:bg-white"
                         }`}
                       />
                       {formErrors.name && (
@@ -254,7 +290,10 @@ export default function Contact() {
 
                     {/* Email */}
                     <div>
-                      <label htmlFor="email" className="block text-xs font-semibold text-brand-bosque uppercase tracking-wider mb-1.5">
+                      <label
+                        htmlFor="email"
+                        className="block text-xs font-semibold text-brand-bosque uppercase tracking-wider mb-1.5"
+                      >
                         Correo Corporativo *
                       </label>
                       <input
@@ -266,8 +305,8 @@ export default function Contact() {
                         placeholder="ejemplo@empresa.com"
                         className={`w-full px-4 py-3 rounded-xl border font-sans text-sm transition-all focus:outline-none focus:ring-1 ${
                           formErrors.email
-                            ? 'border-red-400 focus:border-red-500 focus:ring-red-100 bg-red-50/10'
-                            : 'border-slate-200 focus:border-brand-hoja focus:ring-brand-hoja/10 bg-slate-50/50 focus:bg-white'
+                            ? "border-red-400 focus:border-red-500 focus:ring-red-100 bg-red-50/10"
+                            : "border-slate-200 focus:border-brand-hoja focus:ring-brand-hoja/10 bg-slate-50/50 focus:bg-white"
                         }`}
                       />
                       {formErrors.email && (
@@ -281,7 +320,10 @@ export default function Contact() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     {/* Phone */}
                     <div>
-                      <label htmlFor="phone" className="block text-xs font-semibold text-brand-bosque uppercase tracking-wider mb-1.5">
+                      <label
+                        htmlFor="phone"
+                        className="block text-xs font-semibold text-brand-bosque uppercase tracking-wider mb-1.5"
+                      >
                         Teléfono / Celular *
                       </label>
                       <input
@@ -293,8 +335,8 @@ export default function Contact() {
                         placeholder="Ej. +51 987 654 321"
                         className={`w-full px-4 py-3 rounded-xl border font-sans text-sm transition-all focus:outline-none focus:ring-1 ${
                           formErrors.phone
-                            ? 'border-red-400 focus:border-red-500 focus:ring-red-100 bg-red-50/10'
-                            : 'border-slate-200 focus:border-brand-hoja focus:ring-brand-hoja/10 bg-slate-50/50 focus:bg-white'
+                            ? "border-red-400 focus:border-red-500 focus:ring-red-100 bg-red-50/10"
+                            : "border-slate-200 focus:border-brand-hoja focus:ring-brand-hoja/10 bg-slate-50/50 focus:bg-white"
                         }`}
                       />
                       {formErrors.phone && (
@@ -306,7 +348,10 @@ export default function Contact() {
 
                     {/* Company Name */}
                     <div>
-                      <label htmlFor="companyName" className="block text-xs font-semibold text-brand-bosque uppercase tracking-wider mb-1.5">
+                      <label
+                        htmlFor="companyName"
+                        className="block text-xs font-semibold text-brand-bosque uppercase tracking-wider mb-1.5"
+                      >
                         Razón Social de la Empresa
                       </label>
                       <div className="relative">
@@ -327,7 +372,10 @@ export default function Contact() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     {/* RUC (Peruvian corporate Tax ID, 11 digits) */}
                     <div>
-                      <label htmlFor="ruc" className="block text-xs font-semibold text-brand-bosque uppercase tracking-wider mb-1.5">
+                      <label
+                        htmlFor="ruc"
+                        className="block text-xs font-semibold text-brand-bosque uppercase tracking-wider mb-1.5"
+                      >
                         Número de RUC (11 dígitos)
                       </label>
                       <input
@@ -340,8 +388,8 @@ export default function Contact() {
                         placeholder="Ej. 20601234567"
                         className={`w-full px-4 py-3 rounded-xl border font-sans text-sm transition-all focus:outline-none focus:ring-1 ${
                           formErrors.ruc
-                            ? 'border-red-400 focus:border-red-500 focus:ring-red-100 bg-red-50/10'
-                            : 'border-slate-200 focus:border-brand-hoja focus:ring-brand-hoja/10 bg-slate-50/50 focus:bg-white'
+                            ? "border-red-400 focus:border-red-500 focus:ring-red-100 bg-red-50/10"
+                            : "border-slate-200 focus:border-brand-hoja focus:ring-brand-hoja/10 bg-slate-50/50 focus:bg-white"
                         }`}
                       />
                       {formErrors.ruc && (
@@ -353,7 +401,10 @@ export default function Contact() {
 
                     {/* Service Interest Area */}
                     <div>
-                      <label htmlFor="serviceInterest" className="block text-xs font-semibold text-brand-bosque uppercase tracking-wider mb-1.5">
+                      <label
+                        htmlFor="serviceInterest"
+                        className="block text-xs font-semibold text-brand-bosque uppercase tracking-wider mb-1.5"
+                      >
                         Servicio Requerido *
                       </label>
                       <select
@@ -363,18 +414,21 @@ export default function Contact() {
                         onChange={handleChange}
                         className={`w-full px-4 py-3 rounded-xl border font-sans text-sm transition-all focus:outline-none focus:ring-1 ${
                           formErrors.serviceInterest
-                            ? 'border-red-400 focus:border-red-500 focus:ring-red-100 bg-red-50/10'
-                            : 'border-slate-200 focus:border-brand-hoja focus:ring-brand-hoja/10 bg-slate-50/50 focus:bg-white'
+                            ? "border-red-400 focus:border-red-500 focus:ring-red-100 bg-red-50/10"
+                            : "border-slate-200 focus:border-brand-hoja focus:ring-brand-hoja/10 bg-slate-50/50 focus:bg-white"
                         }`}
                       >
                         <option value="">Seleccione una opción...</option>
-                        {servicesInterestOptions.map(opt => (
-                          <option key={opt.value} value={opt.value}>{opt.label}</option>
+                        {servicesInterestOptions.map((opt) => (
+                          <option key={opt.value} value={opt.value}>
+                            {opt.label}
+                          </option>
                         ))}
                       </select>
                       {formErrors.serviceInterest && (
                         <p className="text-[11px] text-red-500 font-medium flex items-center gap-1 mt-1">
-                          <AlertCircle className="w-3 h-3" /> {formErrors.serviceInterest}
+                          <AlertCircle className="w-3 h-3" />{" "}
+                          {formErrors.serviceInterest}
                         </p>
                       )}
                     </div>
@@ -382,7 +436,10 @@ export default function Contact() {
 
                   {/* Message details */}
                   <div>
-                    <label htmlFor="message" className="block text-xs font-semibold text-brand-bosque uppercase tracking-wider mb-1.5">
+                    <label
+                      htmlFor="message"
+                      className="block text-xs font-semibold text-brand-bosque uppercase tracking-wider mb-1.5"
+                    >
                       Detalle de su Requerimiento *
                     </label>
                     <textarea
@@ -394,8 +451,8 @@ export default function Contact() {
                       placeholder="Describa brevemente el tipo de residuo, ubicación de la planta, frecuencia de retiro, o parámetros de monitoreo ambiental requeridos..."
                       className={`w-full px-4 py-3 rounded-xl border font-sans text-sm transition-all focus:outline-none focus:ring-1 ${
                         formErrors.message
-                          ? 'border-red-400 focus:border-red-500 focus:ring-red-100 bg-red-50/10'
-                          : 'border-slate-200 focus:border-brand-hoja focus:ring-brand-hoja/10 bg-slate-50/50 focus:bg-white'
+                          ? "border-red-400 focus:border-red-500 focus:ring-red-100 bg-red-50/10"
+                          : "border-slate-200 focus:border-brand-hoja focus:ring-brand-hoja/10 bg-slate-50/50 focus:bg-white"
                       }`}
                     />
                     {formErrors.message && (
@@ -426,7 +483,8 @@ export default function Contact() {
                   </button>
 
                   <p className="text-[10px] text-slate-400 font-medium text-center">
-                    * Campos obligatorios. Sus datos están protegidos por la Ley N° 29733 de Protección de Datos Personales en el Perú.
+                    * Campos obligatorios. Sus datos están protegidos por la Ley
+                    N° 29733 de Protección de Datos Personales en el Perú.
                   </p>
                 </motion.form>
               ) : (
@@ -452,16 +510,25 @@ export default function Contact() {
                   </div>
 
                   <div className="bg-slate-50 border border-slate-100 rounded-2xl p-5 max-w-sm w-full space-y-2">
-                    <div className="text-xs text-slate-400 uppercase tracking-widest font-mono">Código de Trazabilidad</div>
-                    <div className="font-mono text-lg font-bold text-brand-bosque">{ticketNumber}</div>
+                    <div className="text-xs text-slate-400 uppercase tracking-widest font-mono">
+                      Código de Trazabilidad
+                    </div>
+                    <div className="font-mono text-lg font-bold text-brand-bosque">
+                      {ticketNumber}
+                    </div>
                     <p className="font-sans text-[11px] text-slate-500 leading-snug">
-                      Se ha generado un ticket de atención en nuestro sistema de CRM Técnico. Un ingeniero especialista se pondrá en contacto con usted a través de su correo corporativo registrado.
+                      Se ha generado un ticket de atención en nuestro sistema de
+                      CRM Técnico. Un ingeniero especialista se pondrá en
+                      contacto con usted a través de su correo corporativo
+                      registrado.
                     </p>
                   </div>
 
                   <div className="flex items-center gap-2 text-slate-400">
                     <ShieldCheck className="w-4 h-4 text-brand-hoja" />
-                    <span className="font-sans text-[11px] font-medium">Registro seguro y encriptado</span>
+                    <span className="font-sans text-[11px] font-medium">
+                      Registro seguro y encriptado
+                    </span>
                   </div>
 
                   <button
@@ -474,11 +541,14 @@ export default function Contact() {
               )}
             </AnimatePresence>
           </Reveal>
-
         </div>
 
         {/* Google Maps — ancho completo */}
-        <Reveal direction="up" delay={0.1} className="mt-12 rounded-3xl overflow-hidden border border-slate-100 shadow-sm w-full h-80">
+        <Reveal
+          direction="up"
+          delay={0.1}
+          className="mt-12 rounded-3xl overflow-hidden border border-slate-100 shadow-sm w-full h-80"
+        >
           <iframe
             title="Ubicación AmbientalMente LV"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3897.0!2d-78.5148!3d-7.1638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sJr.+Villa+Tres+Molinos+Mz.+C+Lote+16+E%2C+Cajamarca%2C+Per%C3%BA!5e0!3m2!1ses!2spe!4v1"
@@ -490,7 +560,6 @@ export default function Contact() {
             referrerPolicy="no-referrer-when-downgrade"
           />
         </Reveal>
-
       </div>
     </section>
   );

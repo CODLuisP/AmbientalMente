@@ -61,7 +61,7 @@ export default function AboutUs() {
   {/* Imagen */}
   <div className="h-full shrink-0 mr-2">
     <img
-            src="/src/public/sobre.png"
+            src="/src/public/sobre.webp"
       alt="Sobre AmbientalMente LV"
   className="h-full w-auto object-cover rounded-2xl"
     />
@@ -102,7 +102,7 @@ export default function AboutUs() {
                   onClick={() => setActiveTab(tabKey)}
                   className={`flex items-center gap-4 p-5 rounded-2xl transition-all duration-300 text-left cursor-pointer group border ${
                     isSelected
-                      ? 'bg-gradient-to-r from-brand-bosque to-emerald-950 border-brand-bosque text-white shadow-lg shadow-brand-bosque/10'
+                      ? 'bg-linear-to-r from-brand-bosque to-emerald-950 border-brand-bosque text-white shadow-lg shadow-brand-bosque/10'
                       : 'bg-slate-50 hover:bg-slate-100 border-slate-100 text-slate-700'
                   }`}
                 >
@@ -125,9 +125,9 @@ export default function AboutUs() {
           </div>
 
           {/* Right Column: Tab Content Panel */}
-          <div className="lg:col-span-8 min-h-[340px] bg-slate-50/50 rounded-3xl p-8 sm:p-10 border border-slate-100/60 shadow-inner relative overflow-hidden flex flex-col justify-between">
+          <div className="lg:col-span-8 min-h-85 bg-slate-50/50 rounded-3xl p-8 sm:p-10 border border-slate-100/60 shadow-inner relative overflow-hidden flex flex-col justify-between">
             <img
-              src="/src/public/forma01.png"
+              src="/src/public/forma01.webp"
               alt=""
               className="absolute inset-0 w-full h-full object-cover opacity-5 pointer-events-none select-none"
             />
@@ -192,16 +192,16 @@ export default function AboutUs() {
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.6, delay: idx * 0.12, ease: 'easeOut' }}
                 whileHover={{ y: -6 }}
-                className="group relative overflow-hidden rounded-2xl min-h-[360px] flex flex-col justify-end shadow-md hover:shadow-2xl transition-shadow duration-500 cursor-default"
+                className="group relative overflow-hidden rounded-2xl min-h-90 flex flex-col justify-end shadow-md hover:shadow-2xl transition-shadow duration-500 cursor-default"
               >
                 {/* Foto del tema, siempre visible y nítida */}
                 <img
                   src={stat.bgImage}
                   alt=""
-                  className="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-[1200ms] ease-out pointer-events-none select-none"
+                  className="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-1200 ease-out pointer-events-none select-none"
                 />
                 {/* Degradado oscuro de abajo hacia arriba para legibilidad */}
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-bosque via-brand-bosque/60 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-brand-bosque via-brand-bosque/60 to-transparent" />
                 {/* Velo extra que se aclara en hover */}
                 <div className="absolute inset-0 bg-brand-bosque/20 group-hover:bg-brand-bosque/0 transition-colors duration-500" />
 

@@ -48,15 +48,15 @@ export default function Values() {
   return (
     <section id="valores" className="py-24 bg-white relative overflow-hidden">
       {/* Structural Accent lines */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-slate-200 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-slate-200 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading */}
         <Reveal className="flex flex-row mb-16 h-47.5 items-center">
           <div className="h-full shrink-0 mr-2">
-            <img src="/src/public/sobre.png" alt="Filosofía de Trabajo" className="h-full w-auto object-cover rounded-2xl" />
+            <img src="/src/public/sobre.webp" alt="Filosofía de Trabajo" className="h-full w-auto object-cover rounded-2xl" />
           </div>
           <div className="px-4">
             <span className="text-xs font-semibold text-brand-hoja uppercase tracking-widest">
@@ -83,11 +83,11 @@ export default function Values() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.45, delay: idx * 0.12 }}
-                className={`relative rounded-3xl p-6 border transition-all duration-300 flex flex-col justify-between group min-h-[250px] overflow-hidden ${styles.bg} ${styles.border}`}
+                className={`relative rounded-3xl p-6 border transition-all duration-300 flex flex-col justify-between group min-h-62.5 overflow-hidden ${styles.bg} ${styles.border}`}
               >
                 {/* Imagen decorativa alternada: formulario (izq) / carda (der) */}
                 <img
-                  src={idx % 2 === 0 ? '/src/public/formulario.png' : '/src/public/carda.png'}
+                  src={idx % 2 === 0 ? '/src/public/formulario.webp' : '/src/public/carda.webp'}
                   alt=""
                   className={`absolute bottom-0 h-28 w-auto object-contain opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none select-none ${idx % 2 === 0 ? 'left-0' : 'right-0'}`}
                 />
@@ -119,11 +119,11 @@ export default function Values() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mt-20 rounded-3xl bg-gradient-to-br from-brand-bosque to-emerald-950 text-white relative overflow-hidden shadow-xl"
+          className="mt-20 rounded-3xl bg-linear-to-br from-brand-bosque to-emerald-950 text-white relative overflow-hidden shadow-xl"
         >
           {/* Background overlay circles */}
-          <div className="absolute right-[-30px] bottom-[-30px] w-64 h-64 rounded-full bg-white/5 blur-xl" />
-          <div className="absolute left-[-30px] top-[-30px] w-64 h-64 rounded-full bg-brand-claro/10 blur-xl" />
+          <div className="absolute -right-7.5 -bottom-7.5 w-64 h-64 rounded-full bg-white/5 blur-xl" />
+          <div className="absolute -left-7.5 -top-7.5 w-64 h-64 rounded-full bg-brand-claro/10 blur-xl" />
 
           <div className="relative z-10 grid grid-cols-1 sm:grid-cols-[1fr_auto] items-end gap-8">
             {/* Texto de la cita */}
@@ -148,7 +148,7 @@ export default function Values() {
 
             {/* Foto de Albert Einstein integrada al borde */}
             <motion.img
-              src="/src/public/albert.png"
+              src="/src/public/albert.webp"
               alt="Albert Einstein"
               initial={{ opacity: 0, y: 120 }}
               whileInView={{ opacity: 1, y: 0 }}
