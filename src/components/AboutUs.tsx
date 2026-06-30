@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import Reveal from './Reveal';
 import { statsData } from '../data';
 import { Target, Eye, Compass, Shield, Users, Leaf, ArrowRight } from 'lucide-react';
 import * as LucideIcons from 'lucide-react';
@@ -54,7 +55,7 @@ export default function AboutUs() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading */}
-    <div className="flex flex-row mb-16  h-47.5 items-center">
+    <Reveal className="flex flex-row mb-16  h-47.5 items-center">
 
 
   {/* Imagen */}
@@ -84,10 +85,10 @@ export default function AboutUs() {
       para el sector privado y público.
     </p>
   </div>
-</div>
+</Reveal>
 
         {/* Dynamic Interactive Tabs Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
+        <Reveal direction="up" delay={0.1} className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
           
           {/* Left Column: Interactive Nav / Buttons */}
           <div className="lg:col-span-4 flex flex-col gap-4">
@@ -171,18 +172,18 @@ export default function AboutUs() {
             </AnimatePresence>
           </div>
 
-        </div>
+        </Reveal>
 
         {/* Corporate Metrics (Stats Grid) */}
         <div className="border-t border-slate-100 pt-20">
-          <div className="text-center max-w-xl mx-auto mb-12">
+          <Reveal className="text-center max-w-xl mx-auto mb-12">
             <h3 className="font-display font-bold text-lg text-brand-bosque uppercase tracking-widest">
               El Planeta en Cifras
             </h3>
             <p className="font-sans text-xs text-slate-400 mt-1 uppercase tracking-wide">
               Datos reales que impulsan nuestra razón de existir
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {statsData.map((stat, idx) => (
@@ -191,9 +192,10 @@ export default function AboutUs() {
                 id={`stat-card-${stat.id}`}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="group relative overflow-hidden rounded-2xl min-h-[360px] flex flex-col justify-end shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 cursor-default"
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.6, delay: idx * 0.12, ease: 'easeOut' }}
+                whileHover={{ y: -6 }}
+                className="group relative overflow-hidden rounded-2xl min-h-[360px] flex flex-col justify-end shadow-md hover:shadow-2xl transition-shadow duration-500 cursor-default"
               >
                 {/* Foto del tema, siempre visible y nítida */}
                 <img

@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { valuesData } from '../data';
 import { Heart, Scale, Sparkles, Award, Star } from 'lucide-react';
+import Reveal from './Reveal';
 
 export default function Values() {
   const getValueIcon = (name: string, colorClass: string = "text-brand-bosque") => {
@@ -53,9 +54,11 @@ export default function Values() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading */}
-        <div className="flex items-start gap-4 mb-16">
-          <div className="w-1 self-stretch bg-brand-hoja rounded-full shrink-0" />
-          <div>
+        <Reveal className="flex flex-row mb-16 h-47.5 items-center">
+          <div className="h-full shrink-0 mr-2">
+            <img src="/src/public/sobre.png" alt="Filosofía de Trabajo" className="h-full w-auto object-cover rounded-2xl" />
+          </div>
+          <div className="px-4">
             <span className="text-xs font-semibold text-brand-hoja uppercase tracking-widest">
               Filosofía de Trabajo
             </span>
@@ -66,7 +69,7 @@ export default function Values() {
               Nuestra cultura empresarial se sostiene sobre bases éticas firmes, orientadas a la innovación constante y al cuidado responsable de la sociedad y del planeta.
             </p>
           </div>
-        </div>
+        </Reveal>
 
         {/* Values Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -116,22 +119,43 @@ export default function Values() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mt-20 p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-brand-bosque to-emerald-950 text-white text-center relative overflow-hidden shadow-xl"
+          className="mt-20 rounded-3xl bg-gradient-to-br from-brand-bosque to-emerald-950 text-white relative overflow-hidden shadow-xl"
         >
           {/* Background overlay circles */}
           <div className="absolute right-[-30px] bottom-[-30px] w-64 h-64 rounded-full bg-white/5 blur-xl" />
           <div className="absolute left-[-30px] top-[-30px] w-64 h-64 rounded-full bg-brand-claro/10 blur-xl" />
 
-          <div className="relative z-10 max-w-2xl mx-auto">
-            <span className="text-[10px] font-mono uppercase tracking-widest text-brand-claro">
-              Filosofía Organizacional
-            </span>
-            <p className="font-display italic text-lg sm:text-xl text-brand-claro/90 mt-4 leading-relaxed font-medium">
-              "No heredamos la tierra de nuestros antepasados, la tomamos prestada de nuestros hijos."
-            </p>
-            <p className="font-sans text-xs text-white/75 mt-3 uppercase tracking-wider">
-              — Principio Ambiental que Inspira Nuestra Labor Técnica
-            </p>
+          <div className="relative z-10 grid grid-cols-1 sm:grid-cols-[1fr_auto] items-end gap-8">
+            {/* Texto de la cita */}
+            <div className="p-8 sm:p-12">
+              {/* Comilla decorativa grande */}
+              <span className="font-display text-7xl sm:text-8xl leading-none text-brand-claro/30 select-none block -mb-6">
+                &ldquo;
+              </span>
+              <p className="font-display italic text-xl sm:text-2xl text-white leading-relaxed font-medium">
+                No heredamos la tierra de nuestros antepasados, la tomamos prestada de nuestros hijos.
+              </p>
+              <div className="flex items-center gap-3 mt-6">
+                <div className="w-10 h-0.5 bg-brand-claro/60 rounded-full" />
+                <p className="font-sans text-sm text-brand-claro font-semibold tracking-wide">
+                  Albert Einstein
+                </p>
+              </div>
+              <p className="font-sans text-[11px] text-white/60 mt-1 uppercase tracking-wider">
+                Principio que inspira nuestra labor técnica
+              </p>
+            </div>
+
+            {/* Foto de Albert Einstein integrada al borde */}
+            <motion.img
+              src="/src/public/albert.png"
+              alt="Albert Einstein"
+              initial={{ opacity: 0, y: 120 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
+              className="hidden sm:block h-64 w-auto object-contain object-bottom self-end drop-shadow-2xl"
+            />
           </div>
         </motion.div>
 

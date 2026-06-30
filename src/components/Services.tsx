@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { servicesData } from '../data';
+import Reveal from './Reveal';
 import {
   ArrowUpRight, ArrowRight,
   Truck, Gauge, FileText, Droplets, GraduationCap,
@@ -111,9 +112,11 @@ export default function Services() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}
-        <div className="flex items-start gap-4 mb-16">
-          <div className="w-1 self-stretch bg-brand-hoja rounded-full shrink-0" />
-          <div>
+        <Reveal className="flex flex-row mb-16 h-47.5 items-center">
+          <div className="h-full shrink-0 mr-2">
+            <img src="/src/public/sobre01.png" alt="Nuestros Servicios" className="h-full w-auto object-cover rounded-2xl" />
+          </div>
+          <div className="px-4">
             <span className="text-xs font-semibold text-brand-hoja uppercase tracking-widest">
               Nuestros Servicios
             </span>
@@ -124,7 +127,7 @@ export default function Services() {
               Abordamos de forma integral las necesidades ambientales de su empresa, asegurando el estricto cumplimiento normativo y promoviendo la sostenibilidad.
             </p>
           </div>
-        </div>
+        </Reveal>
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

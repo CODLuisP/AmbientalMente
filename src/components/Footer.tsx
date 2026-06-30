@@ -1,5 +1,6 @@
 import { MouseEvent } from 'react';
 import { ArrowUp, Mail, Phone, MapPin, Globe, ExternalLink } from 'lucide-react';
+import Reveal from './Reveal';
 
 export default function Footer() {
   const handleScrollToTop = (e: MouseEvent<HTMLButtonElement>) => {
@@ -42,7 +43,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 py-16 border-b border-white/10">
 
           {/* Col 1: Info de contacto */}
-          <div className="space-y-6">
+          <Reveal direction="up" className="space-y-6">
             <div>
               <h3 className="font-display font-bold text-base text-white mb-1">AmbientalMente LV E.I.R.L.</h3>
               <p className="text-[11px] text-brand-claro/70 font-mono">RUC: 20614968665</p>
@@ -74,10 +75,10 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-          </div>
+          </Reveal>
 
           {/* Col 2: Navegación */}
-          <div className="space-y-5">
+          <Reveal direction="up" delay={0.1} className="space-y-5">
             <h4 className="font-display font-bold text-xs uppercase tracking-widest text-brand-claro">
               Navegación
             </h4>
@@ -94,10 +95,10 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
 
           {/* Col 3: Enlaces legales */}
-          <div className="space-y-5">
+          <Reveal direction="up" delay={0.2} className="space-y-5">
             <h4 className="font-display font-bold text-xs uppercase tracking-widest text-brand-claro">
               Organismos Reguladores
             </h4>
@@ -116,7 +117,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
 
         </div>
 

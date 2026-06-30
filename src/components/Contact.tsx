@@ -2,6 +2,7 @@ import { useState, ChangeEvent, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle2, Building2, ShieldCheck, AlertCircle, RefreshCw } from 'lucide-react';
 import { ContactFormData } from '../types';
+import Reveal from './Reveal';
 
 export default function Contact() {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -110,9 +111,11 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading */}
-        <div className="flex items-start gap-4 mb-16">
-          <div className="w-1 self-stretch bg-brand-hoja rounded-full shrink-0" />
-          <div>
+        <Reveal className="flex flex-row mb-16 h-47.5 items-center">
+          <div className="h-full shrink-0 mr-2">
+            <img src="/src/public/sobre.png" alt="Canales de Atención" className="h-full w-auto object-cover rounded-2xl" />
+          </div>
+          <div className="px-4">
             <span className="text-xs font-semibold text-brand-hoja uppercase tracking-widest">
               Canales de Atención
             </span>
@@ -123,12 +126,12 @@ export default function Contact() {
               Póngase en contacto con nuestros ingenieros especialistas. Le responderemos en menos de 24 horas laborables.
             </p>
           </div>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
           {/* Left Column: Contact Channels & Map Mockup (5 cols) */}
-          <div className="lg:col-span-5 space-y-8">
+          <Reveal direction="right" className="lg:col-span-5 space-y-8">
             <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm space-y-6">
               <h3 className="font-display font-bold text-xl text-brand-bosque mb-2">
                 Información Corporativa
@@ -203,10 +206,10 @@ export default function Contact() {
               </div>
             </div>
 
-          </div>
+          </Reveal>
 
           {/* Right Column: Interactive Feedback Contact Form (7 cols) */}
-          <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 border border-slate-100 shadow-sm relative overflow-hidden">
+          <Reveal direction="left" delay={0.1} className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 border border-slate-100 shadow-sm relative overflow-hidden">
             <img
               src="/src/public/formulariof.jpeg"
               alt=""
@@ -470,12 +473,12 @@ export default function Contact() {
                 </motion.div>
               )}
             </AnimatePresence>
-          </div>
+          </Reveal>
 
         </div>
 
         {/* Google Maps — ancho completo */}
-        <div className="mt-12 rounded-3xl overflow-hidden border border-slate-100 shadow-sm w-full h-80">
+        <Reveal direction="up" delay={0.1} className="mt-12 rounded-3xl overflow-hidden border border-slate-100 shadow-sm w-full h-80">
           <iframe
             title="Ubicación AmbientalMente LV"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3897.0!2d-78.5148!3d-7.1638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sJr.+Villa+Tres+Molinos+Mz.+C+Lote+16+E%2C+Cajamarca%2C+Per%C3%BA!5e0!3m2!1ses!2spe!4v1"
@@ -486,7 +489,7 @@ export default function Contact() {
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           />
-        </div>
+        </Reveal>
 
       </div>
     </section>

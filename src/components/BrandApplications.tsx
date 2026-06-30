@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { brandAppsData } from '../data';
 import { Truck, FileSpreadsheet, Shirt, Trash, Check, QrCode } from 'lucide-react';
+import Reveal from './Reveal';
 
 export default function BrandApplications() {
   const [activeAppId, setActiveAppId] = useState<string>('app-truck');
@@ -29,7 +30,7 @@ export default function BrandApplications() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading */}
-        <div className="flex items-start gap-4 mb-16">
+        <Reveal className="flex items-start gap-4 mb-16">
           <div className="w-1 self-stretch bg-brand-hoja rounded-full shrink-0" />
           <div>
             <span className="text-xs font-semibold text-brand-hoja uppercase tracking-widest">
@@ -42,7 +43,7 @@ export default function BrandApplications() {
               Diseñamos cada punto de contacto con disciplina técnica y un alto estándar estético. Vea cómo se despliega nuestra identidad corporativa en el mundo real.
             </p>
           </div>
-        </div>
+        </Reveal>
 
         {/* Tab Selectors (Horizontal list on desktop, scrollable on mobile) */}
         <div className="flex overflow-x-auto pb-4 sm:pb-0 sm:justify-center gap-3 mb-12 scrollbar-none">
@@ -67,7 +68,7 @@ export default function BrandApplications() {
         </div>
 
         {/* Split Grid: Interactive Custom CSS Mockup & Text Description */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-slate-50 rounded-3xl p-6 sm:p-10 border border-slate-100 shadow-inner">
+        <Reveal direction="up" delay={0.1} className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-slate-50 rounded-3xl p-6 sm:p-10 border border-slate-100 shadow-inner">
           
           {/* Left Column: Interactive, High-Fidelity CSS Drawing (Mockups) */}
           <div className="lg:col-span-7 flex items-center justify-center min-h-[380px] w-full bg-white rounded-2xl border border-slate-100 shadow-sm relative overflow-hidden p-4 sm:p-8">
@@ -305,7 +306,7 @@ export default function BrandApplications() {
             </AnimatePresence>
           </div>
 
-        </div>
+        </Reveal>
 
       </div>
     </section>
