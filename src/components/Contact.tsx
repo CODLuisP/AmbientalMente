@@ -98,8 +98,6 @@ export default function Contact() {
       setSubmitSuccess(true);
       const randomTicket = `AMV-${Math.floor(100000 + Math.random() * 900000)}`;
       setTicketNumber(randomTicket);
-      
-      // Clear form except interest
       setFormData({
         name: "",
         email: "",
