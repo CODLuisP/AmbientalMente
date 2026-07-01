@@ -60,7 +60,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
               className="group"
             >
               <img
-                src="/src/public/logoA.png"
+                src="/src/public/logoA.webp"
                 alt="AmbientalMente LV"
                 className="h-10 w-auto object-contain transition-transform group-hover:scale-105"
               />
@@ -159,7 +159,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
             <div className="flex flex-col gap-8">
               {/* Header inside drawer */}
               <div className="flex items-center justify-between">
-                <img src="/src/public/logoA.png" alt="AmbientalMente LV" className="h-9 w-auto object-contain" />
+                <img src="/src/public/logoA.webp" alt="AmbientalMente LV" className="h-9 w-auto object-contain" />
                 <button
                   id="close-drawer-btn"
                   onClick={() => setIsOpen(false)}

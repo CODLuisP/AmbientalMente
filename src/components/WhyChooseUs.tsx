@@ -26,7 +26,7 @@ export default function WhyChooseUs() {
   return (
     <section id="por-que-elegirnos" className="py-24 bg-slate-50 relative overflow-hidden">
       {/* Structural Accent Lines */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-slate-200 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -36,7 +36,7 @@ export default function WhyChooseUs() {
           <div className="lg:col-span-5 flex flex-col justify-center">
             <div className="flex flex-row mb-8 h-47.5 items-center">
               <div className="h-full shrink-0 mr-2">
-                <img src="/src/public/sobre01.png" alt="Diferenciales de Valor" className="h-full w-auto object-cover rounded-2xl" />
+                <img src="/src/public/sobre01.webp" alt="Diferenciales de Valor" className="h-full w-auto object-cover rounded-2xl" />
               </div>
               <div className="px-4">
                 <span className="text-xs font-semibold text-brand-hoja uppercase tracking-widest">
@@ -98,7 +98,7 @@ export default function WhyChooseUs() {
                   whileInView={{ opacity: 1, scale: 1, y: 0 }}
                   viewport={{ once: true, margin: '-40px' }}
                   transition={{ duration: 0.4, delay: idx * 0.1 }}
-                  className="bg-white rounded-2xl p-6 border border-slate-100 hover:border-brand-hoja/20 transition-all hover:shadow-md flex flex-col justify-between min-h-[240px] group"
+                  className="bg-white rounded-2xl p-6 border border-slate-100 hover:border-brand-hoja/20 transition-all hover:shadow-md flex flex-col justify-between min-h-60 group"
                 >
                   <div>
                     {/* Header with icon and tag highlight */}

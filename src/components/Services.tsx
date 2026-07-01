@@ -62,11 +62,11 @@ const cardThemes: Record<string, {
 
 // Configuración de imagen por servicio (posición y tamaño independientes)
 const cardImages: Record<string, { src: string; className: string }> = {
-  residuos:     { src: '/src/public/furgoneta.png',              className: 'absolute bottom-5 right-3 h-28 w-auto' },
-  monitoreo:    { src: '/src/public/servicios/monitore.png',     className: 'absolute bottom-2 right-0 h-35 w-auto' },
-  consultoria:  { src: '/src/public/servicios/consultoria.png',  className: 'absolute bottom-0 right-0 h-38 w-auto' },
-  banos:        { src: '/src/public/servicios/baño.png',         className: 'absolute bottom-5 right-3 h-45 w-auto' },
-  capacitacion: { src: '/src/public/servicios/capacitaciones.png', className: 'absolute bottom-0 right-0 h-58 w-auto' },
+  residuos:     { src: '/src/public/furgoneta.webp',              className: 'absolute bottom-5 right-3 h-28 w-auto' },
+  monitoreo:    { src: '/src/public/servicios/monitore.webp',     className: 'absolute bottom-2 right-0 h-35 w-auto' },
+  consultoria:  { src: '/src/public/servicios/consultoria.webp',  className: 'absolute bottom-0 right-0 h-38 w-auto' },
+  banos:        { src: '/src/public/servicios/baño.webp',         className: 'absolute bottom-5 right-3 h-45 w-auto' },
+  capacitacion: { src: '/src/public/servicios/capacitaciones.webp', className: 'absolute bottom-0 right-0 h-58 w-auto' },
 };
 
 // Iconos para las 3 features destacadas de cada servicio
@@ -114,7 +114,7 @@ export default function Services() {
         {/* Section Header */}
         <Reveal className="flex flex-row mb-16 h-47.5 items-center">
           <div className="h-full shrink-0 mr-2">
-            <img src="/src/public/sobre01.png" alt="Nuestros Servicios" className="h-full w-auto object-cover rounded-2xl" />
+            <img src="/src/public/sobre01.webp" alt="Nuestros Servicios" className="h-full w-auto object-cover rounded-2xl" />
           </div>
           <div className="px-4">
             <span className="text-xs font-semibold text-brand-hoja uppercase tracking-widest">
@@ -143,7 +143,7 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className={`group relative rounded-[28px] overflow-hidden cursor-pointer min-h-[535px] flex flex-col transition-all duration-500 shadow-sm hover:shadow-2xl border border-white/70 hover:border-transparent${idx === servicesData.length - 1 ? ' lg:col-span-2' : ''}`}
+                className={`group relative rounded-[28px] overflow-hidden cursor-pointer min-h-133.75 flex flex-col transition-all duration-500 shadow-sm hover:shadow-2xl border border-white/70 hover:border-transparent${idx === servicesData.length - 1 ? ' lg:col-span-2' : ''}`}
               >
                 {/* Capa de fondo clara (siempre) */}
                 <div className={`absolute inset-0 bg-linear-to-b ${theme.base}`} />
@@ -178,7 +178,7 @@ export default function Services() {
                   <ul className="space-y-3.5">
                     {feats.map((feat, i) => (
                       <li key={i} className="flex items-center gap-3">
-                        <span className={`${theme.iconColor} group-hover:text-white transition-colors duration-300 [&>svg]:w-[18px] [&>svg]:h-[18px] shrink-0`}>
+                        <span className={`${theme.iconColor} group-hover:text-white transition-colors duration-300 [&>svg]:w-4.5 [&>svg]:h-4.5 shrink-0`}>
                           {icons[i]}
                         </span>
                         <span className="font-sans text-sm text-slate-700 group-hover:text-white/90 transition-colors duration-300">
@@ -192,7 +192,7 @@ export default function Services() {
                 {/* Ondas concéntricas bajo la imagen */}
                 <svg
                   viewBox="0 0 200 120"
-                  className="absolute bottom-5 right-5 w-52 h-32 pointer-events-none z-[1] overflow-visible"
+                  className="absolute bottom-5 right-5 w-52 h-32 pointer-events-none z-1 overflow-visible"
                   fill="none"
                 >
                   {[60, 46, 32, 18].map((ry, i) => (
@@ -208,7 +208,7 @@ export default function Services() {
                   ))}
                 </svg>
                 {/* Glow en hover */}
-                <div className="absolute bottom-0 right-0 w-52 h-44 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-white/25 translate-x-1/4 translate-y-1/4 pointer-events-none z-[1]" />
+                <div className="absolute bottom-0 right-0 w-52 h-44 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-white/25 translate-x-1/4 translate-y-1/4 pointer-events-none z-1" />
                 <img
                   src={img.src}
                   alt=""
