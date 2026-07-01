@@ -99,7 +99,7 @@ export const servicesData: Service[] = [
   },
   {
     id: 'capacitacion',
-    title: 'Capacitación en SST y Medio Ambiente',
+    title: 'Capacitación en Seguridad, Salud y Medio Ambiente',
     shortDescription: 'Programas de capacitación orientados a la prevención de riesgos, protección del medio ambiente y cumplimiento de normativa en seguridad y salud en el trabajo.',
     fullDescription: 'Fortalecemos las competencias del personal mediante programas de capacitación orientados a la prevención de riesgos, la protección del medio ambiente y el cumplimiento de la normativa en seguridad y salud en el trabajo.',
     iconName: 'Gauge',
@@ -148,8 +148,8 @@ export const valuesData: Value[] = [
   },
   {
     id: 'val6',
-    title: 'Calidad',
-    description: 'Brindamos servicios que satisfacen las expectativas de nuestros clientes mediante procesos eficientes, personal capacitado y mejora continua de nuestra gestión.',
+    title: 'Compromiso con la Calidad',
+    description: 'Operamos bajo el cumplimiento de la legislación ambiental peruana y aplicamos procedimientos internos orientados a la mejora continua, la seguridad y salud en el trabajo, la protección del medio ambiente y la satisfacción de nuestros clientes, brindando servicios confiables, eficientes y responsables en cada proyecto.',
     iconName: 'Star'
   },
   {
@@ -161,7 +161,7 @@ export const valuesData: Value[] = [
   {
     id: 'val8',
     title: 'Orientación al Cliente',
-    description: 'Colocamos las necesidades del cliente en el centro de nuestras decisiones, brindando atención personalizada y soluciones que generan confianza y relaciones duraderas.',
+    description: 'Atendemos empresas de los sectores construcción, minería, industria, comercio, salud, e instituciones públicas y privadas, ofreciendo soluciones ambientales personalizadas, eficientes y adaptadas a las necesidades de cada organización, construyendo relaciones de confianza mediante un servicio responsable, oportuno y de alta calidad.',
     iconName: 'Scale'
   },
   {
@@ -232,14 +232,17 @@ export const brandAppsData: BrandApp[] = [
   },
   {
     id: 'app-uniform',
-    title: 'Unidad de Ingeniería y Monitoreo',
+    title: 'Seguridad de Nuestro Personal',
     subtitle: 'Identidad y Seguridad de Nuestro Equipo en Campo',
-    description: 'El personal de AmbientalMente LV viste uniformes técnicos que cumplen la normativa peruana de Seguridad y Salud en el Trabajo (SST), combinando la protección contra agentes externos con una presencia impecable que honra el profesionalismo de nuestros clientes.',
+    description: 'La seguridad de nuestro equipo es una prioridad. Por ello, nuestro personal desarrolla sus actividades utilizando Equipos de Protección Personal (EPP) adecuados para cada operación, contribuyendo a reducir riesgos laborales y ambientales. Implementamos procedimientos de trabajo seguro y herramientas adecuadas para garantizar operaciones eficientes, responsables y respetuosas con el medio ambiente.',
     specs: [
-      'Chaleco de ingeniería de alta visibilidad Verde Hoja con logo bordado.',
-      'Casco técnico de ala completa con logotipos troquelados en contraste.',
-      'EPP dieléctrico y respiradores con filtros para gases/partículas.',
-      'Identificación fotocheck conforme al reglamento interno de SST.'
+      'Casco de seguridad.',
+      'Chaleco reflectivo.',
+      'Guantes de protección.',
+      'Zapatos de seguridad con punta de acero.',
+      'Lentes de seguridad.',
+      'Respiradores según la actividad.',
+      'Overoles de trabajo.'
     ],
     illustrationType: 'uniform'
   },

@@ -84,7 +84,7 @@ const highlightFeatures: Record<string, string[]> = {
   monitoreo: ['Calidad de agua y aire', 'Calidad de suelo y ruido', 'Informes técnicos'],
   consultoria: ['Instrumentos de Gestión (IGA)', 'Declaraciones de Impacto (DIA)', 'Planes de Manejo Ambiental'],
   banos: ['Instalación y limpieza', 'Mantenimiento preventivo', 'Reposición y retiro'],
-  capacitacion: ['Seguridad y salud (SST)', 'Prevención de riesgos', 'Normativa ambiental']
+  capacitacion: ['Seguridad y salud', 'Prevención de riesgos', 'Normativa ambiental']
 };
 
 const topIcon = (name: string, cls: string) => {

@@ -475,12 +475,12 @@ export default function Contact() {
                     {isSubmitting ? (
                       <>
                         <RefreshCw className="w-4.5 h-4.5 animate-spin" />
-                        Procesando en CRM de Ingeniería...
+                        Enviando solicitud...
                       </>
                     ) : (
                       <>
                         <Send className="w-4 h-4 text-brand-claro group-hover:translate-x-0.5 transition-transform" />
-                        Enviar Solicitud de Cotización
+                        Enviar Solicitud
                       </>
                     )}
                   </button>
@@ -513,15 +513,8 @@ export default function Contact() {
                   </div>
 
                   <div className="bg-slate-50 border border-slate-100 rounded-2xl p-5 max-w-sm w-full space-y-2">
-                    <div className="text-xs text-slate-400 uppercase tracking-widest font-mono">
-                      Código de Trazabilidad
-                    </div>
-                    <div className="font-mono text-lg font-bold text-brand-bosque">
-                      {ticketNumber}
-                    </div>
                     <p className="font-sans text-[11px] text-slate-500 leading-snug">
-                      Se ha generado un ticket de atención en nuestro sistema de
-                      CRM Técnico. Un ingeniero especialista se pondrá en
+                      Su solicitud ha sido recibida con éxito. Un especialista se pondrá en
                       contacto con usted a través de su correo corporativo
                       registrado.
                     </p>
