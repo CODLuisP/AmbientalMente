@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import emailjs from '@emailjs/browser';
 import { motion, AnimatePresence } from 'motion/react';
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle2, Building2, ShieldCheck, AlertCircle, RefreshCw } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle2, Building2, ShieldCheck, AlertCircle, RefreshCw, Navigation } from 'lucide-react';
 import { ContactFormData } from '../types';
 import Reveal from './Reveal';
 
@@ -151,10 +151,10 @@ export default function Contact() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
           {/* Left Column: Contact Channels & Map Mockup (5 cols) */}
-          <Reveal direction="right" className="lg:col-span-5 space-y-8">
-            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm space-y-6">
+          <Reveal direction="right" className="lg:col-span-5 h-full">
+            <div className="h-full flex flex-col bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm space-y-6">
               <h3 className="font-display font-bold text-xl text-brand-bosque mb-2">
                 Información Corporativa
               </h3>
@@ -546,22 +546,53 @@ export default function Contact() {
           </Reveal>
         </div>
 
-        {/* Google Maps — ancho completo */}
+        {/* Google Maps — ancho completo con marcador y tarjeta de ubicación */}
         <Reveal
           direction="up"
           delay={0.1}
-          className="mt-12 rounded-3xl overflow-hidden border border-slate-100 shadow-sm w-full h-80"
+          className="mt-12 relative rounded-3xl overflow-hidden border border-slate-100 shadow-sm w-full h-80 sm:h-96"
         >
           <iframe
             title="Ubicación AmbientalMente LV"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3897.0!2d-78.5148!3d-7.1638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sJr.+Villa+Tres+Molinos+Mz.+C+Lote+16+E%2C+Cajamarca%2C+Per%C3%BA!5e0!3m2!1ses!2spe!4v1"
+            src="https://maps.google.com/maps?q=-7.132930,-78.511903&z=17&hl=es&output=embed"
             width="100%"
             height="100%"
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
+            className="grayscale-15 contrast-[1.03]"
           />
+
+          {/* Tarjeta flotante con la dirección de la empresa */}
+          <div className="pointer-events-none absolute inset-0 flex items-start justify-end p-4 sm:p-6">
+            <div className="pointer-events-auto w-full sm:max-w-xs bg-white/90 backdrop-blur-md rounded-2xl shadow-xl ring-1 ring-black/5 p-4 sm:p-5">
+              <div className="flex items-start gap-3">
+                {/* Marcador con pulso animado */}
+                <span className="relative shrink-0">
+                  <span className="absolute inset-0 rounded-full bg-brand-claro/40 animate-ping" />
+                  <span className="relative flex items-center justify-center w-10 h-10 rounded-full bg-brand-bosque text-white shadow-lg">
+                    <MapPin className="w-5 h-5" />
+                  </span>
+                </span>
+                <div className="min-w-0">
+                  <h4 className="font-display font-bold text-sm text-brand-bosque leading-tight">AmbientalMente LV</h4>
+                  <p className="font-sans text-xs text-slate-500 leading-snug mt-1">
+                    Jr. Villa Tres Molinos Mz. C Lote 16 E, Cajamarca – Perú
+                  </p>
+                  <a
+                    href="https://www.google.com/maps/dir/?api=1&destination=-7.132930,-78.511903"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 mt-3 text-xs font-semibold text-white bg-brand-bosque hover:bg-brand-bosque/90 transition-colors rounded-full px-3.5 py-2 shadow-sm"
+                  >
+                    <Navigation className="w-3.5 h-3.5" />
+                    Cómo llegar
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </Reveal>
       </div>
     </section>

@@ -30,7 +30,7 @@ export interface BrandApp {
   subtitle: string;
   description: string;
   specs: string[];
-  illustrationType: 'truck' | 'report' | 'uniform' | 'stations';
+  illustrationType: 'truck' | 'report' | 'uniform' | 'stations' | 'stationery';
 }
 
 export interface ContactFormData {

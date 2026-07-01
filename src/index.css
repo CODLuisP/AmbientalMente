@@ -39,3 +39,22 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #0f482b;
 }
+
+/* Marquee: cinta de desplazamiento continuo (derecha -> izquierda) */
+@keyframes marquee-ltr {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-ltr 34s linear infinite;
+}
+
+.animate-marquee:hover,
+.group\/marquee:hover .animate-marquee {
+  animation-play-state: paused;
+}

@@ -8,6 +8,10 @@ import {
   Trash,
   Check,
   QrCode,
+  IdCard,
+  Mail,
+  Phone,
+  Globe,
 } from "lucide-react";
 import Reveal from "./Reveal";
 
@@ -29,6 +33,8 @@ export default function BrandApplications() {
         return <Shirt className={`${size} ${color}`} />;
       case "stations":
         return <Trash className={`${size} ${color}`} />;
+      case "stationery":
+        return <IdCard className={`${size} ${color}`} />;
       default:
         return <Truck className={`${size} ${color}`} />;
     }
@@ -65,26 +71,33 @@ export default function BrandApplications() {
           </div>
         </Reveal>
 
-        {/* Tab Selectors (Horizontal list on desktop, scrollable on mobile) */}
-        <div className="flex overflow-x-auto pb-4 sm:pb-0 sm:justify-center gap-3 mb-12 scrollbar-none">
-          {brandAppsData.map((app) => {
-            const isSelected = app.id === activeAppId;
-            return (
-              <button
-                key={app.id}
-                id={`brand-tab-btn-${app.id}`}
-                onClick={() => setActiveAppId(app.id)}
-                className={`flex items-center gap-2.5 px-5 py-3 rounded-2xl font-sans text-xs sm:text-sm font-semibold tracking-wide transition-all shrink-0 cursor-pointer border ${
-                  isSelected
-                    ? "bg-brand-bosque border-brand-bosque text-white shadow-md shadow-brand-bosque/10"
-                    : "bg-slate-50 border-slate-150 text-slate-600 hover:bg-slate-100 hover:text-brand-bosque hover:border-slate-300"
-                }`}
-              >
-                {getTabIcon(app.illustrationType, isSelected)}
-                {app.title}
-              </button>
-            );
-          })}
+        {/* Tab Selectors — cinta de desplazamiento continuo (izq. a der.), se pausa al pasar el cursor */}
+        <div className="group/marquee relative mb-12 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
+          <div className="flex w-max animate-marquee gap-3">
+            {[0, 1].map((copyIndex) => (
+              <div key={copyIndex} className="flex shrink-0 gap-3 pr-3" aria-hidden={copyIndex === 1}>
+                {brandAppsData.map((app) => {
+                  const isSelected = app.id === activeAppId;
+                  return (
+                    <button
+                      key={`${copyIndex}-${app.id}`}
+                      id={copyIndex === 0 ? `brand-tab-btn-${app.id}` : undefined}
+                      tabIndex={copyIndex === 1 ? -1 : 0}
+                      onClick={() => setActiveAppId(app.id)}
+                      className={`flex items-center gap-2.5 px-5 py-3 rounded-2xl font-sans text-xs sm:text-sm font-semibold tracking-wide transition-all shrink-0 cursor-pointer border whitespace-nowrap ${
+                        isSelected
+                          ? "bg-brand-bosque border-brand-bosque text-white shadow-md shadow-brand-bosque/10"
+                          : "bg-slate-50 border-slate-150 text-slate-600 hover:bg-slate-100 hover:text-brand-bosque hover:border-slate-300"
+                      }`}
+                    >
+                      {getTabIcon(app.illustrationType, isSelected)}
+                      {app.title}
+                    </button>
+                  );
+                })}
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Split Grid: Interactive Custom CSS Mockup & Text Description */}
@@ -94,7 +107,7 @@ export default function BrandApplications() {
           className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-slate-50 rounded-3xl p-6 sm:p-10 border border-slate-100 shadow-inner"
         >
           {/* Left Column: Interactive, High-Fidelity CSS Drawing (Mockups) */}
-          <div className="lg:col-span-7 flex items-center justify-center min-h-95 w-full bg-white rounded-2xl border border-slate-100 shadow-sm relative overflow-hidden p-4 sm:p-8">
+          <div className="lg:col-span-7 flex items-center justify-center min-h-95 w-full bg-white rounded-2xl border border-slate-100 relative overflow-hidden p-4 sm:p-8">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeAppId}
@@ -129,7 +142,7 @@ export default function BrandApplications() {
                           <span className="text-brand-hoja">LV</span>
                         </span>
                         <span className="text-[6px] text-slate-400 uppercase font-bold tracking-wider">
-                          E.I.R.L. | RUC: 20601234567
+                          E.I.R.L. | RUC: 20614968665
                         </span>
                       </div>
                       <div className="p-1 rounded bg-brand-bosque/5 text-brand-bosque">
@@ -315,6 +328,82 @@ export default function BrandApplications() {
                       <span className="text-[8px] text-slate-500 font-bold">
                         Negro
                       </span>
+                    </div>
+                  </div>
+                )}
+
+                {/* 5. PAPELERÍA CORPORATIVA / TARJETA DE PRESENTACIÓN */}
+                {currentApp.illustrationType === "stationery" && (
+                  <div className="flex flex-col items-center gap-6">
+                    {/* Business Card */}
+                    <div className="relative w-72 sm:w-80 aspect-[1.75/1] bg-brand-bosque rounded-2xl shadow-xl overflow-hidden p-5 flex flex-col justify-between">
+                      {/* Decorative hexagon texture */}
+                      <div className="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-brand-hoja/10 blur-2xl pointer-events-none" />
+                      <div className="absolute -left-6 -bottom-10 w-28 h-28 rounded-full bg-brand-claro/10 blur-2xl pointer-events-none" />
+
+                      <div className="relative z-10 flex items-start justify-between">
+                        <div>
+                          <span className="font-display font-extrabold text-sm text-white leading-none">
+                            AmbientalMente{" "}
+                            <span className="text-brand-claro">LV</span>
+                          </span>
+                          <p className="text-[7px] text-white/50 uppercase tracking-widest mt-1">
+                            E.I.R.L. | RUC: 20614968665
+                          </p>
+                        </div>
+                        <div className="p-1.5 rounded-lg bg-white/10">
+                          <IdCard className="w-4 h-4 text-brand-claro" />
+                        </div>
+                      </div>
+
+                      <div className="relative z-10">
+                        <p className="font-display font-bold text-white text-sm">
+                          Ing. María Fernanda López
+                        </p>
+                        <p className="text-[8px] text-brand-claro font-semibold uppercase tracking-wider">
+                          Gerente de Consultoría Ambiental
+                        </p>
+                      </div>
+
+                      <div className="relative z-10 border-t border-white/10 pt-2.5 flex flex-col gap-1">
+                        <div className="flex items-center gap-1.5 text-[7px] text-white/70">
+                          <Phone className="w-2.5 h-2.5 text-brand-hoja shrink-0" />
+                          +51 958 671 088
+                        </div>
+                        <div className="flex items-center gap-1.5 text-[7px] text-white/70">
+                          <Mail className="w-2.5 h-2.5 text-brand-hoja shrink-0" />
+                          ambientalmente531@gmail.com
+                        </div>
+                        <div className="flex items-center gap-1.5 text-[7px] text-white/70">
+                          <Globe className="w-2.5 h-2.5 text-brand-hoja shrink-0" />
+                          www.ambientalmentelv.com.pe
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Email signature mockup */}
+                    <div className="w-72 sm:w-80 bg-white rounded-xl border border-slate-200 shadow-sm p-4">
+                      <p className="text-[8px] text-slate-400 uppercase tracking-widest font-bold mb-2">
+                        Firma de correo electrónico
+                      </p>
+                      <div className="flex items-center gap-3">
+                        <div className="w-9 h-9 rounded-lg bg-brand-bosque flex items-center justify-center shrink-0">
+                          <span className="text-[8px] font-display font-extrabold text-brand-claro">
+                            AMV
+                          </span>
+                        </div>
+                        <div className="border-l border-slate-200 pl-3">
+                          <p className="text-[9px] font-bold text-brand-bosque leading-tight">
+                            María Fernanda López
+                          </p>
+                          <p className="text-[7px] text-slate-500 leading-tight">
+                            Gerente de Consultoría Ambiental
+                          </p>
+                          <p className="text-[6.5px] text-slate-400 leading-tight mt-1">
+                            +51 958 671 088 · ambientalmente531@gmail.com
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 )}

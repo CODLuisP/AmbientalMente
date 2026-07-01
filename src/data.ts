@@ -234,12 +234,12 @@ export const brandAppsData: BrandApp[] = [
     id: 'app-uniform',
     title: 'Unidad de Ingeniería y Monitoreo',
     subtitle: 'Identidad y Seguridad de Nuestro Equipo en Campo',
-    description: 'El personal de AmbientalMente LV viste uniformes técnicos diseñados bajo estándares internacionales de seguridad (ANSI/OSHA), combinando la protección contra agentes externos con una presencia impecable que honra el profesionalismo de nuestros clientes.',
+    description: 'El personal de AmbientalMente LV viste uniformes técnicos que cumplen la normativa peruana de Seguridad y Salud en el Trabajo (SST), combinando la protección contra agentes externos con una presencia impecable que honra el profesionalismo de nuestros clientes.',
     specs: [
       'Chaleco de ingeniería de alta visibilidad Verde Hoja con logo bordado.',
       'Casco técnico de ala completa con logotipos troquelados en contraste.',
       'EPP dieléctrico y respiradores con filtros para gases/partículas.',
-      'Identificación fotocheck con chip NFC de seguridad ambiental.'
+      'Identificación fotocheck conforme al reglamento interno de SST.'
     ],
     illustrationType: 'uniform'
   },
@@ -255,5 +255,18 @@ export const brandAppsData: BrandApp[] = [
       'Indicadores de volumen de llenado y guías de disposición rápida.'
     ],
     illustrationType: 'stations'
+  },
+  {
+    id: 'app-stationery',
+    title: 'Papelería Corporativa',
+    subtitle: 'Identidad Institucional en Cada Documento',
+    description: 'Nuestra papelería —tarjetas de presentación, hojas membretadas y firma de correo electrónico— sigue un mismo sistema visual, tipográfico y cromático, proyectando solidez institucional en cada comunicación oficial de AmbientalMente LV.',
+    specs: [
+      'Tarjetas de presentación con datos de contacto y cargo del colaborador.',
+      'Hoja membretada oficial para informes, propuestas y cotizaciones.',
+      'Firma de correo electrónico con logotipo, teléfono, web y redes sociales.',
+      'RUC y razón social visibles conforme a normativa vigente.'
+    ],
+    illustrationType: 'stationery'
   }
 ];
