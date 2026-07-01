@@ -1,4 +1,5 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
+import emailjs from '@emailjs/browser';
 import { motion, AnimatePresence } from 'motion/react';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle2, Building2, ShieldCheck, AlertCircle, RefreshCw } from 'lucide-react';
 import { ContactFormData } from '../types';
@@ -76,15 +77,25 @@ export default function Contact() {
 
     setIsSubmitting(true);
 
-    // Simulate reliable CRM delivery
-    setTimeout(() => {
+    emailjs.send(
+      'default_service',
+      'template_2b2znyi',
+      {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        companyName: formData.companyName || 'No especificado',
+        ruc: formData.ruc || 'No especificado',
+        serviceInterest: formData.serviceInterest,
+        message: formData.message,
+        time: new Date().toLocaleString('es-PE', { timeZone: 'America/Lima' }),
+      },
+      { publicKey: 'CmpTorxLRw7Bosms1' }
+    ).then(() => {
       setIsSubmitting(false);
       setSubmitSuccess(true);
-      // Generate a realistic ticket reference number
       const randomTicket = `AMV-${Math.floor(100000 + Math.random() * 900000)}`;
       setTicketNumber(randomTicket);
-      
-      // Clear form except interest
       setFormData({
         name: '',
         email: '',
@@ -94,7 +105,10 @@ export default function Contact() {
         serviceInterest: '',
         message: ''
       });
-    }, 1800);
+    }).catch(() => {
+      setIsSubmitting(false);
+      alert('Ocurrió un error al enviar su solicitud. Por favor intente nuevamente o contáctenos directamente.');
+    });
   };
 
   const handleReset = () => {
@@ -238,7 +252,7 @@ export default function Contact() {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="Ej. Luis Cabrera"
+                        placeholder="Ej. Dr. Carlos Mendoza"
                         className={`w-full px-4 py-3 rounded-xl border font-sans text-sm transition-all focus:outline-none focus:ring-1 ${
                           formErrors.name
                             ? 'border-red-400 focus:border-red-500 focus:ring-red-100 bg-red-50/10'
@@ -263,7 +277,7 @@ export default function Contact() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="ejemplo@empresa.com"
+                        placeholder="contacto@clinica.com.pe"
                         className={`w-full px-4 py-3 rounded-xl border font-sans text-sm transition-all focus:outline-none focus:ring-1 ${
                           formErrors.email
                             ? 'border-red-400 focus:border-red-500 focus:ring-red-100 bg-red-50/10'
@@ -290,7 +304,7 @@ export default function Contact() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder="Ej. +51 987 654 321"
+                        placeholder="Ej. +51 976 543 210"
                         className={`w-full px-4 py-3 rounded-xl border font-sans text-sm transition-all focus:outline-none focus:ring-1 ${
                           formErrors.phone
                             ? 'border-red-400 focus:border-red-500 focus:ring-red-100 bg-red-50/10'
@@ -316,7 +330,7 @@ export default function Contact() {
                           name="companyName"
                           value={formData.companyName}
                           onChange={handleChange}
-                          placeholder="Ej. Sostenible SAC"
+                          placeholder="Ej. Clínica San Marcos S.A.C."
                           className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white focus:outline-none focus:border-brand-hoja focus:ring-1 focus:ring-brand-hoja/10 font-sans text-sm transition-all"
                         />
                         <Building2 className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -391,7 +405,7 @@ export default function Contact() {
                       rows={4}
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Describa brevemente el tipo de residuo, ubicación de la planta, frecuencia de retiro, o parámetros de monitoreo ambiental requeridos..."
+                      placeholder="Ej. Gestión de residuos biocontaminados de nuestra clínica, volumen estimado mensual, frecuencia de retiro requerida y ubicación del establecimiento de salud..."
                       className={`w-full px-4 py-3 rounded-xl border font-sans text-sm transition-all focus:outline-none focus:ring-1 ${
                         formErrors.message
                           ? 'border-red-400 focus:border-red-500 focus:ring-red-100 bg-red-50/10'
