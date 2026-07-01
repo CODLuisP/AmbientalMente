@@ -36,7 +36,7 @@ export default function WhyChooseUs() {
           <div className="lg:col-span-5 flex flex-col justify-center">
             <div className="flex flex-row mb-8 h-47.5 items-center">
               <div className="h-full shrink-0 mr-2">
-                <img src="/src/public/sobre01.webp" alt="Diferenciales de Valor" className="h-full w-auto object-cover rounded-2xl" />
+                <img src="/sobre01.webp" alt="Diferenciales de Valor" className="h-full w-auto object-cover rounded-2xl" />
               </div>
               <div className="px-4">
                 <span className="text-xs font-semibold text-brand-hoja uppercase tracking-widest">

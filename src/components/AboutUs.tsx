@@ -61,7 +61,7 @@ export default function AboutUs() {
   {/* Imagen */}
   <div className="h-full shrink-0 mr-2">
     <img
-            src="/src/public/sobre.webp"
+            src="/sobre.webp"
       alt="Sobre AmbientalMente LV"
   className="h-full w-auto object-cover rounded-2xl"
     />
@@ -127,7 +127,7 @@ export default function AboutUs() {
           {/* Right Column: Tab Content Panel */}
           <div className="lg:col-span-8 min-h-85 bg-slate-50/50 rounded-3xl p-8 sm:p-10 border border-slate-100/60 shadow-inner relative overflow-hidden flex flex-col justify-between">
             <img
-              src="/src/public/forma01.webp"
+              src="/forma01.webp"
               alt=""
               className="absolute inset-0 w-full h-full object-cover opacity-5 pointer-events-none select-none"
             />

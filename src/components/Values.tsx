@@ -56,7 +56,7 @@ export default function Values() {
         {/* Section Heading */}
         <Reveal className="flex flex-row mb-16 h-47.5 items-center">
           <div className="h-full shrink-0 mr-2">
-            <img src="/src/public/sobre.webp" alt="Filosofía de Trabajo" className="h-full w-auto object-cover rounded-2xl" />
+            <img src="/sobre.webp" alt="Filosofía de Trabajo" className="h-full w-auto object-cover rounded-2xl" />
           </div>
           <div className="px-4">
             <span className="text-xs font-semibold text-brand-hoja uppercase tracking-widest">
@@ -87,7 +87,7 @@ export default function Values() {
               >
                 {/* Imagen decorativa alternada: formulario (izq) / carda (der) */}
                 <img
-                  src={idx % 2 === 0 ? '/src/public/formulario.webp' : '/src/public/carda.webp'}
+                  src={idx % 2 === 0 ? '/formulario.webp' : '/carda.webp'}
                   alt=""
                   className={`absolute bottom-0 h-28 w-auto object-contain opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none select-none ${idx % 2 === 0 ? 'left-0' : 'right-0'}`}
                 />
@@ -148,7 +148,7 @@ export default function Values() {
 
             {/* Foto de Albert Einstein integrada al borde */}
             <motion.img
-              src="/src/public/albert.webp"
+              src="/albert.webp"
               alt="Albert Einstein"
               initial={{ opacity: 0, y: 120 }}
               whileInView={{ opacity: 1, y: 0 }}
