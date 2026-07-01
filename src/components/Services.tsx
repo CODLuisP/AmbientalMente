@@ -62,11 +62,11 @@ const cardThemes: Record<string, {
 
 // Configuración de imagen por servicio (posición y tamaño independientes)
 const cardImages: Record<string, { src: string; className: string }> = {
-  residuos:     { src: '/src/public/furgoneta.webp',              className: 'absolute bottom-5 right-3 h-28 w-auto' },
-  monitoreo:    { src: '/src/public/servicios/monitore.webp',     className: 'absolute bottom-2 right-0 h-35 w-auto' },
-  consultoria:  { src: '/src/public/servicios/consultoria.webp',  className: 'absolute bottom-0 right-0 h-38 w-auto' },
-  banos:        { src: '/src/public/servicios/baño.webp',         className: 'absolute bottom-5 right-3 h-45 w-auto' },
-  capacitacion: { src: '/src/public/servicios/capacitaciones.webp', className: 'absolute bottom-0 right-0 h-58 w-auto' },
+  residuos:     { src: '/furgoneta.webp',              className: 'absolute bottom-5 right-3 h-28 w-auto' },
+  monitoreo:    { src: '/servicios/monitore.webp',     className: 'absolute bottom-2 right-0 h-35 w-auto' },
+  consultoria:  { src: '/servicios/consultoria.webp',  className: 'absolute bottom-0 right-0 h-38 w-auto' },
+  banos:        { src: '/servicios/baño.webp',         className: 'absolute bottom-5 right-3 h-45 w-auto' },
+  capacitacion: { src: '/servicios/capacitaciones.webp', className: 'absolute bottom-0 right-0 h-58 w-auto' },
 };
 
 // Iconos para las 3 features destacadas de cada servicio
@@ -114,7 +114,7 @@ export default function Services() {
         {/* Section Header */}
         <Reveal className="flex flex-row mb-16 h-47.5 items-center">
           <div className="h-full shrink-0 mr-2">
-            <img src="/src/public/sobre01.webp" alt="Nuestros Servicios" className="h-full w-auto object-cover rounded-2xl" />
+            <img src="/sobre01.webp" alt="Nuestros Servicios" className="h-full w-auto object-cover rounded-2xl" />
           </div>
           <div className="px-4">
             <span className="text-xs font-semibold text-brand-hoja uppercase tracking-widest">

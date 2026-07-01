@@ -6,28 +6,28 @@ export const statsData: Stat[] = [
     value: '8M',
     label: 'Toneladas de plástico llegan al océano cada año, equivalente a un camión por minuto',
     iconName: 'Trash2',
-    bgImage: '/src/public/cifras/oceano.webp'
+    bgImage: '/cifras/oceano.webp'
   },
   {
     id: 'stat2',
     value: '1.5°C',
     label: 'Límite crítico de calentamiento global establecido por el Acuerdo de París para evitar daños irreversibles',
     iconName: 'Activity',
-    bgImage: '/src/public/cifras/calentamiento.webp'
+    bgImage: '/cifras/calentamiento.webp'
   },
   {
     id: 'stat3',
     value: '70%',
     label: 'Del agua dulce mundial se destina a la agricultura; su gestión eficiente es clave para la sostenibilidad',
     iconName: 'ShieldCheck',
-    bgImage: '/src/public/cifras/agua.webp'
+    bgImage: '/cifras/agua.webp'
   },
   {
     id: 'stat4',
     value: '13M ha',
     label: 'De bosques se pierden anualmente en el mundo, afectando la biodiversidad y el ciclo del carbono',
     iconName: 'Building2',
-    bgImage: '/src/public/cifras/bosque.webp'
+    bgImage: '/cifras/bosque.webp'
   }
 ];
 

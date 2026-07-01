@@ -60,7 +60,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
               className="group"
             >
               <img
-                src="/src/public/logoA.webp"
+                src="/logoA.webp"
                 alt="AmbientalMente LV"
                 className="h-10 w-auto object-contain transition-transform group-hover:scale-105"
               />
@@ -104,7 +104,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
                     : 'text-brand-bosque bg-white/80 border border-brand-bosque/20 hover:bg-white'
                 }`}
               >
-                <img src="/src/public/whatsapp-icon.svg" alt="WhatsApp" className="w-4 h-4" />
+                <img src="/whatsapp-icon.svg" alt="WhatsApp" className="w-4 h-4" />
                 +51 958 671 088
               </a>
               <a
@@ -159,7 +159,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
             <div className="flex flex-col gap-8">
               {/* Header inside drawer */}
               <div className="flex items-center justify-between">
-                <img src="/src/public/logoA.webp" alt="AmbientalMente LV" className="h-9 w-auto object-contain" />
+                <img src="/logoA.webp" alt="AmbientalMente LV" className="h-9 w-auto object-contain" />
                 <button
                   id="close-drawer-btn"
                   onClick={() => setIsOpen(false)}

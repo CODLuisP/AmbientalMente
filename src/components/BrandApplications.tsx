@@ -45,7 +45,7 @@ export default function BrandApplications() {
         <Reveal className="flex flex-row mb-16 h-47.5 items-center">
           <div className="h-full shrink-0 mr-2">
             <img
-              src="/src/public/sobre.webp"
+              src="/sobre.webp"
               alt="Identidad de Marca"
               className="h-full w-auto object-cover rounded-2xl"
             />
@@ -107,7 +107,7 @@ export default function BrandApplications() {
                 {/* 1. FURGONETA */}
                 {currentApp.illustrationType === "truck" && (
                   <img
-                    src="/src/public/furgoneta.webp"
+                    src="/furgoneta.webp"
                     alt="Flota de transporte AmbientalMente LV"
                     className="absolute inset-0 w-full h-full object-cover"
                   />

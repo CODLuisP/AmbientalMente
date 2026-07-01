@@ -132,7 +132,7 @@ export default function Contact() {
         <Reveal className="flex flex-row mb-16 h-47.5 items-center">
           <div className="h-full shrink-0 mr-2">
             <img
-              src="/src/public/sobre01.webp"
+              src="/sobre01.webp"
               alt="Canales de Atención"
               className="h-full w-auto object-cover rounded-2xl"
             />
@@ -247,7 +247,7 @@ export default function Contact() {
             className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 border border-slate-100 shadow-sm relative overflow-hidden"
           >
             <img
-              src="/src/public/formulariof.webp"
+              src="/formulariof.webp"
               alt=""
               className="absolute inset-0 w-full h-full object-cover opacity-5 pointer-events-none select-none"
             />
