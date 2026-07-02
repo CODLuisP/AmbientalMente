@@ -170,17 +170,29 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="py-6 grid grid-cols-3 items-center gap-4">
           <p className="text-[11px] text-slate-400">
             © 2026 AmbientalMente LV E.I.R.L. — Todos los derechos reservados.
           </p>
-          <button
-            onClick={handleScrollToTop}
-            className="p-2.5 bg-white/10 hover:bg-brand-hoja border border-white/10 rounded-xl transition-all cursor-pointer hover:scale-105 active:scale-95"
-            aria-label="Volver arriba"
-          >
-            <ArrowUp className="w-4 h-4 text-white" />
-          </button>
+          <div className="flex justify-center">
+            <button
+              onClick={handleScrollToTop}
+              className="p-2.5 bg-white/10 hover:bg-brand-hoja border border-white/10 rounded-xl transition-all cursor-pointer hover:scale-105 active:scale-95"
+              aria-label="Volver arriba"
+            >
+              <ArrowUp className="w-4 h-4 text-white" />
+            </button>
+          </div>
+          <div className="flex justify-end">
+            <a
+              href="https://www.ideatec.com.pe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[11px] text-slate-400 hover:text-brand-claro transition-colors"
+            >
+              Desarrollado por <span className="font-semibold text-brand-hoja hover:text-brand-claro transition-colors">IDEATEC</span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
