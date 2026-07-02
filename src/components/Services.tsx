@@ -62,11 +62,11 @@ const cardThemes: Record<string, {
 
 // Configuración de imagen por servicio (posición y tamaño independientes)
 const cardImages: Record<string, { src: string; className: string }> = {
-  residuos:     { src: '/furgoneta.webp',              className: 'absolute bottom-5 right-3 h-28 w-auto' },
-  monitoreo:    { src: '/servicios/monitore.webp',     className: 'absolute bottom-2 right-0 h-35 w-auto' },
-  consultoria:  { src: '/servicios/consultoria.webp',  className: 'absolute bottom-0 right-0 h-38 w-auto' },
+  residuos:     { src: '/furgoneta.webp',              className: 'absolute bottom-5 right-3 h-34 w-auto' },
+  monitoreo:    { src: '/servicios/monitore.webp',     className: 'absolute bottom-2 right-0 h-55 w-auto' },
+  consultoria:  { src: '/servicios/consultoria.webp',  className: 'absolute bottom-0 right-0 h-38 w-auto rounded-tl-3xl' },
   banos:        { src: '/servicios/baño.webp',         className: 'absolute bottom-5 right-3 h-45 w-auto' },
-  capacitacion: { src: '/servicios/capacitaciones.webp', className: 'absolute bottom-0 right-0 h-58 w-auto' },
+  capacitacion: { src: '/servicios/capacitaciones.webp', className: 'absolute bottom-0 right-0 h-44 lg:h-58 w-auto rounded-tl-3xl' },
 };
 
 // Iconos para las 3 features destacadas de cada servicio
@@ -143,7 +143,7 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className={`group relative rounded-[28px] overflow-hidden cursor-pointer min-h-133.75 flex flex-col transition-all duration-500 shadow-sm hover:shadow-2xl border border-white/70 hover:border-transparent${idx === servicesData.length - 1 ? ' lg:col-span-2' : ''}`}
+                className={`group relative rounded-[28px] overflow-hidden cursor-pointer min-h-133.75 flex flex-col transition-all duration-500 shadow-sm hover:shadow-2xl border border-white/70 hover:border-transparent${idx === servicesData.length - 1 ? ' lg:col-span-2 max-lg:min-h-155' : ''}`}
               >
                 {/* Capa de fondo clara (siempre) */}
                 <div className={`absolute inset-0 bg-linear-to-b ${theme.base}`} />
