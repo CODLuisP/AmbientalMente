@@ -3,7 +3,6 @@ import { motion } from 'motion/react';
 import { valuesData } from '../data';
 import { Heart, Scale, Sparkles, Award, Star } from 'lucide-react';
 import Reveal from './Reveal';
-
 // 👉 Imagen central del bloque de valores. Cambia solo esta URL.
 const CENTER_IMAGE = '/TrabajandoLV.webp';
 
@@ -16,7 +15,6 @@ const getValueIcon = (name: string, colorClass: string = 'text-brand-bosque') =>
     default: return <Star className={`w-6 h-6 ${colorClass}`} />;
   }
 };
-
 // Colores por tarjeta, alineados a nuestra paleta
 const getStyleConfigs = (idx: number) => {
   const configs = [
@@ -27,7 +25,6 @@ const getStyleConfigs = (idx: number) => {
   ];
   return configs[idx % configs.length];
 };
-
 // Posiciones en la grilla de 10 columnas para el diseño de PC.
 // Cada tarjeta ocupa 2 columnas; la imagen central ocupa cols 3-8 (filas 2-3).
 const desktopPos: CSSProperties[] = [
