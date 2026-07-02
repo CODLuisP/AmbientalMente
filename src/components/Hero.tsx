@@ -130,9 +130,9 @@ export default function Hero() {
               </div>
               <div>
                 <p className="text-[11px] sm:text-xs font-bold text-white">
-                  100% Legal
+                  100% Profesional
                 </p>
-                <p className="text-[10px] text-white/70">Autorización MINAM</p>
+                <p className="text-[10px] text-white/70">Servicio especializado</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -141,10 +141,10 @@ export default function Hero() {
               </div>
               <div>
                 <p className="text-[11px] sm:text-xs font-bold text-white">
-                  Garantía INACAL
+                  Soluciones Sostenibles
                 </p>
                 <p className="text-[10px] text-white/70">
-                  Laboratorios acreditados
+                  Gestión ambiental integral
                 </p>
               </div>
             </div>

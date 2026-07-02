@@ -23,7 +23,15 @@ export default function App() {
   useEffect(() => {
     // Set loaded state to trigger subtle page entrance transitions
     setIsPageLoaded(true);
+  }, []);
 
+  useEffect(() => {
+    // El contenido se monta recién cuando isPageLoaded es true;
+    // por eso el rastreo de sección activa debe iniciarse aquí.
+    if (!isPageLoaded) return;
+
+    // Solo las secciones con enlace en el navbar: al pasar por una sección
+    // sin enlace (p.ej. contacto) el marcador se queda en la anterior.
     const sections = [
       "inicio",
       "nosotros",
@@ -31,40 +39,25 @@ export default function App() {
       "valores",
       "por-que-elegirnos",
       "marca",
-      "contacto",
     ];
 
-    const observerOptions = {
-      root: null,
-      rootMargin: "-30% 0px -50% 0px", // Triggers when section is roughly in center viewport
-      threshold: 0,
-    };
-
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(
-      observerCallback,
-      observerOptions,
-    );
-
-    sections.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-
-    return () => {
-      sections.forEach((id) => {
+    const handleScroll = () => {
+      // Punto de referencia: justo debajo del navbar fijo
+      const pos = window.scrollY + 120;
+      let current = "inicio";
+      for (const id of sections) {
         const el = document.getElementById(id);
-        if (el) observer.unobserve(el);
-      });
+        if (el && el.getBoundingClientRect().top + window.scrollY <= pos) {
+          current = id;
+        }
+      }
+      setActiveSection(current);
     };
-  }, []);
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isPageLoaded]);
 
   return (
     <AnimatePresence>
