@@ -114,9 +114,9 @@ export default function Hero() {
             <strong className="text-white font-bold">
               AmbientalMente LV E.I.R.L.
             </strong>{" "}
-            nos especializamos en la gestión integral de residuos sólidos,
-            monitoreo ocupacional y consultorías que transforman su cumplimiento
-            normativo en ventajas competitivas.
+            brindamos soluciones integrales en gestión de residuos sólidos, 
+            monitoreo ambiental e instrumentos de gestión ambiental, ayudando a las empresas a 
+            cumplir la normativa vigente de manera eficiente y sostenible.
           </motion.p>
 
           {/* Trust badges */}
@@ -130,9 +130,9 @@ export default function Hero() {
               </div>
               <div>
                 <p className="text-[11px] sm:text-xs font-bold text-white">
-                  100% Legal
+                  100% Profesional
                 </p>
-                <p className="text-[10px] text-white/70">Autorización MINAM</p>
+                <p className="text-[10px] text-white/70">Servicio especializado</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -141,10 +141,10 @@ export default function Hero() {
               </div>
               <div>
                 <p className="text-[11px] sm:text-xs font-bold text-white">
-                  Garantía INACAL
+                  Soluciones Sostenibles
                 </p>
                 <p className="text-[10px] text-white/70">
-                  Laboratorios acreditados
+                  Gestión ambiental integral
                 </p>
               </div>
             </div>

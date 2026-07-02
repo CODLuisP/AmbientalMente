@@ -122,7 +122,7 @@ export default function BrandApplications() {
                   <img
                     src="/furgoneta.webp"
                     alt="Flota de transporte AmbientalMente LV"
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-contain"
                   />
                 )}
 
