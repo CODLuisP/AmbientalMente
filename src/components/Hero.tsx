@@ -114,9 +114,9 @@ export default function Hero() {
             <strong className="text-white font-bold">
               AmbientalMente LV E.I.R.L.
             </strong>{" "}
-            nos especializamos en la gestión integral de residuos sólidos,
-            monitoreo ocupacional y consultorías que transforman su cumplimiento
-            normativo en ventajas competitivas.
+            brindamos soluciones integrales en gestión de residuos sólidos, 
+            monitoreo ambiental e instrumentos de gestión ambiental, ayudando a las empresas a 
+            cumplir la normativa vigente de manera eficiente y sostenible.
           </motion.p>
 
           {/* Trust badges */}
