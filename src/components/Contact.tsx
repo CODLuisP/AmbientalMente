@@ -207,12 +207,12 @@ export default function Contact() {
                     </h4>
                     <a
                       id="contact-phone"
-                      href="https://wa.me/51958671088"
+                      href="https://wa.me/51994386776"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="font-sans text-xs sm:text-sm text-brand-bosque font-semibold mt-0.5 hover:text-brand-hoja transition-colors block"
                     >
-                      +51 958 671 088
+                      +51 994 386 776
                     </a>
                     <span className="font-sans text-xs text-slate-500 block">
                       WhatsApp disponible

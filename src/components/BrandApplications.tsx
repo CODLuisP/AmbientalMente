@@ -368,7 +368,7 @@ export default function BrandApplications() {
                       <div className="relative z-10 border-t border-white/10 pt-2.5 flex flex-col gap-1">
                         <div className="flex items-center gap-1.5 text-[7px] text-white/70">
                           <Phone className="w-2.5 h-2.5 text-brand-hoja shrink-0" />
-                          +51 958 671 088
+                          +51 994 386 776
                         </div>
                         <div className="flex items-center gap-1.5 text-[7px] text-white/70">
                           <Mail className="w-2.5 h-2.5 text-brand-hoja shrink-0" />
@@ -400,7 +400,7 @@ export default function BrandApplications() {
                             Gerente de Consultoría Ambiental
                           </p>
                           <p className="text-[6.5px] text-slate-400 leading-tight mt-1">
-                            +51 958 671 088 · ambientalmente531@gmail.com
+                            +51 994 386 776 · ambientalmente531@gmail.com
                           </p>
                         </div>
                       </div>

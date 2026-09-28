@@ -95,7 +95,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
             {/* CTA + WhatsApp */}
             <div className="hidden lg:flex items-center gap-3">
               <a
-                href="https://wa.me/51958671088"
+                href="https://wa.me/51994386776"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`inline-flex items-center gap-2 px-4 py-2.5 font-sans text-sm font-medium rounded-xl transition-all ${
@@ -105,7 +105,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
                 }`}
               >
                 <img src="/whatsapp-icon.svg" alt="WhatsApp" className="w-4 h-4" />
-                +51 958 671 088
+                +51 994 386 776
               </a>
               <a
                 id="nav-cta"

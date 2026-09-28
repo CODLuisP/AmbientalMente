@@ -1,5 +1,5 @@
 export default function WhatsAppFloat() {
-  const waUrl = `https://wa.me/51958671088?text=${encodeURIComponent(
+  const waUrl = `https://wa.me/51994386776?text=${encodeURIComponent(
     'Hola AmbientalMente LV, me interesa conocer más sobre sus servicios. ¿Podemos hablar?'
   )}`;
 

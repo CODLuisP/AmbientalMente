@@ -68,5 +68,5 @@ src/
 
 - **RUC:** 20614968665
 - **Email:** ambientalmente531@gmail.com
-- **WhatsApp:** +51 958 671 088
+- **WhatsApp:** +51 994 386 776
 - **Ubicación:** Jr. Villa Tres Molinos Mz. C Lote 16 E, Cajamarca – Perú
