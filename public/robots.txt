@@ -3,5 +3,5 @@
 User-agent: *
 Allow: /
 
-# Ubicación del sitemap (reemplaza TU-DOMINIO al publicar)
-Sitemap: https://TU-DOMINIO.com/sitemap.xml
+# Ubicación del sitemap
+Sitemap: https://www.ambientalmentelv.com.pe/sitemap.xml
